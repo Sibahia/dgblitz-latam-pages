@@ -1,0 +1,242 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--glass);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(18px) saturate(1.2);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  min-height: var(--header-height);
+}
+
+.brand {
+  display: inline-flex;
+  gap: 0.8rem;
+  align-items: center;
+  justify-self: start;
+  padding-block: 0.55rem;
+}
+
+.brandMark {
+  position: relative;
+  display: grid;
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  color: var(--gold-bright);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(242, 211, 107, 0.2), transparent 58%),
+    var(--surface);
+  border: 1px solid var(--gold);
+  transform: rotate(45deg);
+}
+
+.brandMark::after {
+  position: absolute;
+  inset: 4px;
+  content: '';
+  border: 1px solid var(--line);
+}
+
+.brandMark > span {
+  transform: rotate(-45deg);
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.brandText strong {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.brandText small {
+  margin-top: 0.32rem;
+  color: var(--gold);
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.38em;
+}
+
+.nav {
+  display: flex;
+  gap: clamp(0.9rem, 2.2vw, 2rem);
+  align-items: center;
+  justify-self: center;
+}
+
+.navLink {
+  position: relative;
+  padding: 0.35rem 0;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  transition: color 180ms var(--ease);
+}
+
+.navLink::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  content: '';
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms var(--ease);
+}
+
+.navLink:hover,
+.active {
+  color: var(--gold-bright);
+}
+
+.navLink:hover::after,
+.active::after {
+  transform: scaleX(1);
+}
+
+.controls {
+  display: flex;
+  gap: 0.45rem;
+  align-items: center;
+  justify-self: end;
+}
+
+.language {
+  display: inline-flex;
+  gap: 0.25rem;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding-inline: 0.65rem;
+  color: var(--faint);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  transition:
+    color 180ms var(--ease),
+    border-color 180ms var(--ease);
+}
+
+.language:hover {
+  color: var(--gold-bright);
+  border-color: var(--line-strong);
+}
+
+.langActive {
+  color: var(--gold-bright);
+}
+
+.langDivider {
+  opacity: 0.4;
+}
+
+.iconControl {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  transition:
+    color 180ms var(--ease),
+    border-color 180ms var(--ease),
+    background-color 180ms var(--ease);
+}
+
+.iconControl:hover {
+  color: var(--gold-bright);
+  background: rgba(212, 175, 55, 0.06);
+  border-color: var(--line-strong);
+}
+
+.rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
+}
+
+@media (max-width: 860px) {
+  .inner {
+    grid-template-columns: 1fr auto;
+    gap: 0.35rem 1rem;
+    padding-block: 0.65rem 0;
+  }
+
+  .nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: stretch;
+    justify-content: center;
+    padding-bottom: 0.55rem;
+  }
+
+  .brand {
+    padding-block: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .inner {
+    column-gap: 0.5rem;
+  }
+
+  .brandText strong {
+    font-size: 0.86rem;
+  }
+
+  .brandText small {
+    font-size: 0.52rem;
+  }
+
+  .brandMark {
+    width: 32px;
+    height: 32px;
+    font-size: 0.62rem;
+  }
+
+  .nav {
+    gap: 1.1rem;
+  }
+
+  .navLink {
+    font-size: 0.66rem;
+  }
+
+  .controls {
+    gap: 0.25rem;
+  }
+
+  .language {
+    height: 34px;
+    padding-inline: 0.45rem;
+    font-size: 0.62rem;
+  }
+
+  .iconControl {
+    width: 34px;
+    height: 34px;
+  }
+}

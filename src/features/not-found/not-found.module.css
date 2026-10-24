@@ -1,0 +1,23 @@
+.page {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  min-height: 60vh;
+  padding-block: clamp(3rem, 8vw, 6rem);
+}
+
+.page h1 {
+  max-width: 20ch;
+  margin-top: 0.9rem;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+}
+
+.lead {
+  max-width: 56ch;
+  margin-top: 1rem;
+  color: var(--muted);
+}
+
+.cta {
+  margin-top: 2rem;
+}
