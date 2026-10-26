@@ -4,15 +4,30 @@
 Dungeon Blitz (2012) fan/reference site: documentary and guide content plus a talent calculator. The home page starts with a Hero and the calculator is the main interactive page. Spanish (`es`) is the default locale; English (`en`) is required. The visual direction must follow the game, not a generic SaaS template.
 
 ## Current state
-- Greenfield repo: only `.agents/skills/` and `skills-lock.json`. There is no `package.json`, source code, README, or git history yet.
-- Visual/content reference: `https://github.com/Sibahia/dg-latam`. It was not accessible (404) when this file was written, so do not guess its structure or invent game data; use it once attached.
+- Implemented static site: Vite + React + TypeScript with a home page, talent calculator (9 disciplines, 90 points, 42 talentstones each, shareable build links), bilingual guides, light/dark theme, tests, and GitHub Pages deployment. `README.md` documents setup, data/assets, deployment, and licensing.
+- Visual/content reference: the local game asset dump described in **Game assets** is the primary source for the game's look and data. `https://github.com/Sibahia/dg-latam` was not accessible (404) when this file was written; do not guess its structure or invent game data.
 - `.agents/skills/` and `skills-lock.json` are installed skill assets, not app code. Do not edit or delete them.
+- Multi-session Armory plan: `docs/armory-implementation-plan.md`. Read it before an Armory session and update its session state before stopping.
+
+## Game assets (external, read-only)
+- All Dungeon Blitz sprites, UI art, animations, music, SFX, and game XML live outside this repo at:
+  `dungeon-blitz\src\client\content\localhost\p`
+  It is the client asset dump. Treat it as read-only: never edit, move, reorganize, or commit it here.
+- Verified inventory: subfolders `caa`, `caf`, `cag`, `cam`, `cbo`, `cbp`, `cbq`, `cbw`, `mp3`; 73 `.swf`, 120 `.mp3`, 7 `.xml`, plus `.swz` (compressed SWF) and `.bak*` backups that the site does not need.
+- UI/design assets are the `UI*.swf` files; use them as the reference for the site's frames, buttons, panels, icons, and overall game chrome:
+  - `cbp/UI_0.swf` (master/`Required`), `cbp/UI_1.swf`, `cbp/UI_2.swf`, `cbp/UI_4.swf`, `cbp/UI_0_1.swf`–`UI_0_3.swf`
+  - `caa/UI_Library.swf` (shared UI library), `caa/UI_3.swf`, `cbo/UI_Seasonal.swf`
+- Class art/animations: `caf/Animation_Paladin.swf` + `caf/Animation_Paladin_1.swf` + `cbp/Gfx_Paladin_1.swf`; `cbp/Animation_Rogue.swf` + `cbp/Gfx_Rogue_1.swf`; `cbp/Animation_Mage.swf` + `cbp/Animation_Mage_1.swf` + `cbp/Gfx_Mage_1.swf`. The files are named `Mage`, not "Mague".
+- `cbq/masterFileList.xml` (also `cbw/`) maps logical asset names to their `Version` folder and load stage (`Required`, `Init`, `Login`, `Lib`, `Core`, `Game`). Consult it when resolving names.
+- Music is in `mp3/`; sound effects are `cbp/SFX_1…3.swf` and `cbp/sounds/Sound.swf`.
+- To extract sprites/icons/audio, use JPEXS FFDec already installed at `dungeon-blitz\tools\ffdec` (`ffdec-cli.exe` / `ffdec.bat`, Java 17+). Export only the assets the site uses, optimize them, and add them to this repo's asset folder keeping original names where possible.
+- The static build must be self-contained: do not hotlink or runtime-load the external path, and do not copy the full dump; copy only the files the site ships.
 
 ## Stack and commands
 - Stack: Vite + React + TypeScript. Frontend-only; the build must be static and deployable to both GitHub Pages and Vercel.
-- Scaffolding in this non-empty directory can delete the skills: create the Vite app in a temp folder and merge it, or choose "Ignore files and continue" if prompted.
-- After scaffold: `npm install`, `npm run dev`, `npm run build`, `npm run preview`.
-- There are no lint/test scripts yet. Do not assume `npm run lint` or `npm test` works until they are added.
+- The app is already scaffolded in the repo root. Do not re-scaffold or run generators that could overwrite `.agents/` or `skills-lock.json`.
+- Commands: `npm install`, `npm run dev`, `npm run build`, `npm run preview`.
+- Quality commands: `npm run lint` (Oxlint), `npm run typecheck`, `npm run test`, `npm run test:run`, and `npm run check` (lint + typecheck + tests + build). CI runs these before deployment.
 
 ## Deployment constraints
 - GitHub Pages project sites live under a subpath. Make Vite `base` configurable via env and use relative asset URLs; never hardcode `/`-rooted assets.

@@ -1,3 +1,80 @@
+Dungeon Blitz LATAM Pages - Aviso del proyecto
+==============================================
+
+Copyright (C) 2026 Sibahi (https://github.com/Sibahi)
+Propietario y mantenedor del repositorio: Sibahi (https://github.com/Sibahi)
+
+Este repositorio se distribuye bajo la GNU General Public License, versión 3
+(GPL-3.0-only). El texto completo de la licencia comienza a continuación.
+
+Propiedad del proyecto
+----------------------
+Sibahi es el dueño de este repositorio y titular de los derechos de autor sobre
+el código fuente, las herramientas y la documentación originales que creó para
+él. Nada en este aviso transfiere la propiedad del proyecto a terceros.
+
+Materiales del juego
+--------------------
+Dungeon Blitz y todo su contenido (nombre, arte, sprites, animaciones, interfaz,
+música, efectos de sonido, datos de juego y cualquier material derivado)
+pertenece a sus respectivos titulares. Esos materiales no son propiedad de
+Sibahi. Se incluyen aquí únicamente con fines de preservación, documentación,
+referencia y uso fan, sin reclamar su propiedad. Este proyecto no está afiliado
+ni respaldado por los desarrolladores o editores originales de Dungeon Blitz.
+
+Atribución y contribuciones (términos adicionales, GPLv3 sección 7(b))
+----------------------------------------------------------------------
+Si usas, copias, bifurcas, modificas o construyes sobre el código, las
+herramientas o la documentación originales creados por Sibahi para este
+proyecto, debes:
+
+1. dar crédito claro y visible a Sibahi (https://github.com/Sibahi) como autor
+   original del trabajo reutilizado;
+2. enlazar al repositorio original
+   (https://github.com/Sibahi/dgblitz-latam-pages); y
+3. conservar este aviso y la licencia GPL-3.0 en cualquier copia o versión
+   modificada.
+
+No debes tergiversar el origen del trabajo ni presentar el trabajo de Sibahi
+como propio (GPLv3 sección 7(c)). Si distribuyes una versión modificada, también
+debes mantener su código fuente correspondiente disponible bajo la GPL-3.0, de
+modo que las mejoras puedan volver al proyecto original. Las contribuciones a
+este repositorio son bienvenidas.
+
+Estos términos adicionales se emiten al amparo de la sección 7 de la GPLv3 y no
+sustituyen ni debilitan los derechos y obligaciones de la licencia.
+
+English notice
+==============
+
+Copyright (C) 2026 Sibahi (https://github.com/Sibahi)
+Repository owner and maintainer: Sibahi.
+
+This repository is licensed under the GNU General Public License v3.0
+(GPL-3.0-only). The full license text follows this notice.
+
+Sibahi owns this repository and the copyright in the original source code,
+tooling, and documentation he created for it. Dungeon Blitz and all of its
+materials (name, artwork, sprites, animations, UI, music, sound effects, game
+data, and derivatives) belong to their respective rights holders and are not
+owned by Sibahi. They are included only for fan, preservation, documentary, and
+reference purposes, without any claim of ownership. This project is not
+affiliated with or endorsed by the original Dungeon Blitz developers or
+publishers.
+
+If you use, copy, fork, modify, or build upon Sibahi's original code, tools, or
+documentation, you must give clear and visible credit to Sibahi, link back to
+the original repository (https://github.com/Sibahi/dgblitz-latam-pages), and
+keep this notice and the GPL-3.0 license with any copy or modified version. You
+must not misrepresent the origin of the work or present Sibahi's work as your
+own. If you distribute a modified version, its complete corresponding source
+must remain available under the GPL-3.0 so improvements can flow back to the
+project.
+
+These additional terms are issued under section 7 of GPLv3 and do not replace
+or weaken the rights and obligations of the license.
+
+
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
