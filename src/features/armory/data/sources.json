@@ -1,0 +1,1585 @@
+{
+  "schemaVersion": 1,
+  "sources": {
+    "boss:AbominationBrute": {
+      "kind": "boss",
+      "boss": "AbominationBrute",
+      "dungeon": {
+        "key": "btmission4",
+        "levelName": "BT_Mission4",
+        "name": "Dereliction of Duty"
+      },
+      "missions": [
+        "Dereliction of Duty"
+      ]
+    },
+    "boss:AncientDragonGold": {
+      "kind": "boss",
+      "boss": "AncientDragonGold",
+      "dungeon": {
+        "key": "acmission1",
+        "levelName": "AC_Mission1",
+        "name": "Castle Hocke"
+      },
+      "missions": [
+        "Castle Hocke"
+      ]
+    },
+    "boss:AncientDragonSilver": {
+      "kind": "boss",
+      "boss": "AncientDragonSilver",
+      "dungeon": {
+        "key": "acmission5",
+        "levelName": "AC_Mission5",
+        "name": "Last Stand"
+      },
+      "missions": [
+        "Last Stand"
+      ]
+    },
+    "boss:AshenDryadHero": {
+      "kind": "boss",
+      "boss": "AshenDryadHero",
+      "dungeon": {
+        "key": "egmission2",
+        "levelName": "EG_Mission2",
+        "name": "Out on a Limb"
+      },
+      "missions": [
+        "Out on a Limb"
+      ]
+    },
+    "boss:AshenDryadWizard": {
+      "kind": "boss",
+      "boss": "AshenDryadWizard",
+      "dungeon": {
+        "key": "egmission1",
+        "levelName": "EG_Mission1",
+        "name": "The Ashen Dryad"
+      },
+      "missions": [
+        "The Ashen Dryad"
+      ]
+    },
+    "boss:BanditTwinB": {
+      "kind": "boss",
+      "boss": "BanditTwinB",
+      "dungeon": {
+        "key": "btmission1",
+        "levelName": "BT_Mission1",
+        "name": "Bandit Camp"
+      },
+      "missions": [
+        "Bandit Problem"
+      ]
+    },
+    "boss:BlackGhostLord": {
+      "kind": "boss",
+      "boss": "BlackGhostLord",
+      "dungeon": {
+        "key": "ommmission4",
+        "levelName": "OMM_Mission4",
+        "name": "Abandoned Armory"
+      },
+      "missions": [
+        "Abandoned Armory"
+      ]
+    },
+    "boss:BlackGoblinBoss1": {
+      "kind": "boss",
+      "boss": "BlackGoblinBoss1",
+      "dungeon": {
+        "key": "ommmission1",
+        "levelName": "OMM_Mission1",
+        "name": "Give Voice to Stone"
+      },
+      "missions": [
+        "Give Voice to Stone"
+      ]
+    },
+    "boss:BrigandChamp": {
+      "kind": "boss",
+      "boss": "BrigandChamp",
+      "dungeon": {
+        "key": "jcmission11",
+        "levelName": "JC_Mission11",
+        "name": "Ring of Fire"
+      },
+      "missions": [
+        "Ring of Fire"
+      ]
+    },
+    "boss:CaveWizard": {
+      "kind": "boss",
+      "boss": "CaveWizard",
+      "dungeon": {
+        "key": "ommmission2",
+        "levelName": "OMM_Mission2",
+        "name": "Rock Hulk Garden"
+      },
+      "missions": [
+        "Rock Hulk Garden"
+      ]
+    },
+    "boss:CyclopsChieftain": {
+      "kind": "boss",
+      "boss": "CyclopsChieftain",
+      "dungeon": {
+        "key": "ommmission3",
+        "levelName": "OMM_Mission3",
+        "name": "Eye of the Tyrant"
+      },
+      "missions": [
+        "Eye of the Tyrant"
+      ]
+    },
+    "boss:DefectorMage": {
+      "kind": "boss",
+      "boss": "DefectorMage",
+      "dungeon": {
+        "key": "jcmission3",
+        "levelName": "JC_Mission3",
+        "name": "The Prodigal Son"
+      },
+      "missions": [
+        "The Prodigal Son"
+      ]
+    },
+    "boss:DemonMaligner": {
+      "kind": "boss",
+      "boss": "DemonMaligner",
+      "dungeon": {
+        "key": "chmission5",
+        "levelName": "CH_Mission5",
+        "name": "Embodiment of Evil"
+      },
+      "missions": [
+        "Embodiment of Evil"
+      ]
+    },
+    "boss:DevourerGreat": {
+      "kind": "boss",
+      "boss": "DevourerGreat",
+      "dungeon": {
+        "key": "srnmission6",
+        "levelName": "SRN_Mission6",
+        "name": "Mindless Queen's Glade"
+      },
+      "missions": [
+        "Mindless Queen's Glade"
+      ]
+    },
+    "boss:DogChieftain": {
+      "kind": "boss",
+      "boss": "DogChieftain",
+      "dungeon": {
+        "key": "chmission2",
+        "levelName": "CH_Mission2",
+        "name": "Gnole's Storehouse"
+      },
+      "missions": [
+        "Base of Operations",
+        "Gnole's Storehouse"
+      ]
+    },
+    "boss:DragonBone": {
+      "kind": "boss",
+      "boss": "DragonBone",
+      "dungeon": {
+        "key": "chmission7",
+        "levelName": "CH_Mission7",
+        "name": "Rising Damned"
+      },
+      "missions": [
+        "Rising Damned"
+      ]
+    },
+    "boss:DragonGray": {
+      "kind": "boss",
+      "boss": "DragonGray",
+      "dungeon": {
+        "key": "ommmission10",
+        "levelName": "OMM_Mission10",
+        "name": "All Shall be Ashes"
+      },
+      "missions": [
+        "All Shall be Ashes"
+      ]
+    },
+    "boss:DragonGreen": {
+      "kind": "boss",
+      "boss": "DragonGreen",
+      "dungeon": {
+        "key": "srnmission7",
+        "levelName": "SRN_Mission7",
+        "name": "The Great Green Svath"
+      },
+      "missions": [
+        "The Great Green Svath"
+      ]
+    },
+    "boss:DragonRed": {
+      "kind": "boss",
+      "boss": "DragonRed",
+      "dungeon": {
+        "key": "ommmission6",
+        "levelName": "OMM_Mission6",
+        "name": "Forgotten Forge"
+      },
+      "missions": [
+        "Forgotten Forge"
+      ]
+    },
+    "boss:DragonSea": {
+      "kind": "boss",
+      "boss": "DragonSea",
+      "dungeon": {
+        "key": "egmission3",
+        "levelName": "EG_Mission3",
+        "name": "Rotten to the Roots"
+      },
+      "missions": [
+        "Rotten to the Roots"
+      ]
+    },
+    "boss:DragonTemple": {
+      "kind": "boss",
+      "boss": "DragonTemple",
+      "dungeon": {
+        "key": "jcmission10",
+        "levelName": "JC_Mission10",
+        "name": "Ancient Vault"
+      },
+      "missions": [
+        "Ancient Vault"
+      ]
+    },
+    "boss:DreadLord": {
+      "kind": "boss",
+      "boss": "DreadLord",
+      "dungeon": {
+        "key": "acmission2",
+        "levelName": "AC_Mission2",
+        "name": "The Emerald Throne"
+      },
+      "missions": [
+        "The Emerald Throne"
+      ]
+    },
+    "boss:Emperor": {
+      "kind": "boss",
+      "boss": "Emperor",
+      "dungeon": {
+        "key": "jcmission7",
+        "levelName": "JC_Mission7",
+        "name": "Royal Intervention"
+      },
+      "missions": [
+        "Royal Intervention"
+      ]
+    },
+    "boss:FirePriestBoss": {
+      "kind": "boss",
+      "boss": "FirePriestBoss",
+      "dungeon": {
+        "key": "egmission4",
+        "levelName": "EG_Mission4",
+        "name": "Hope Springs Eternal"
+      },
+      "missions": [
+        "Hope Springs Eternal"
+      ]
+    },
+    "boss:FirePriestWizard": {
+      "kind": "boss",
+      "boss": "FirePriestWizard",
+      "dungeon": {
+        "key": "egmission5",
+        "levelName": "EG_Mission5",
+        "name": "Refuge of the Damned"
+      },
+      "missions": [
+        "Refuge of the Damned"
+      ]
+    },
+    "boss:GoblinBoss1": {
+      "kind": "boss",
+      "boss": "GoblinBoss1",
+      "dungeon": {
+        "key": "tutorialdungeon",
+        "levelName": "TutorialDungeon",
+        "name": "Goblin Kidnappers"
+      },
+      "missions": [
+        "Goblin Kidnappers"
+      ]
+    },
+    "boss:GoblinBoss2": {
+      "kind": "boss",
+      "boss": "GoblinBoss2",
+      "dungeon": {
+        "key": "goblinriverdungeon",
+        "levelName": "GoblinRiverDungeon",
+        "name": "Goblin Camp"
+      },
+      "missions": [
+        "Last of the Goblins"
+      ]
+    },
+    "boss:GolemLord": {
+      "kind": "boss",
+      "boss": "GolemLord",
+      "dungeon": {
+        "key": "sdmission6",
+        "levelName": "SD_Mission6",
+        "name": "Legacy of the Magi"
+      },
+      "missions": [
+        "Legacy of the Magi"
+      ]
+    },
+    "boss:GrayGhostLord": {
+      "kind": "boss",
+      "boss": "GrayGhostLord",
+      "dungeon": {
+        "key": "ghostbossdungeon",
+        "levelName": "GhostBossDungeon",
+        "name": "Nephit's Quest"
+      },
+      "missions": [
+        "Nephit's Quest"
+      ]
+    },
+    "boss:GreatLizardLord": {
+      "kind": "boss",
+      "boss": "GreatLizardLord",
+      "dungeon": {
+        "key": "srnmission5",
+        "levelName": "SRN_Mission5",
+        "name": "Citadel of the Vizier"
+      },
+      "missions": [
+        "Citadel of the Vizier"
+      ]
+    },
+    "boss:GreaterBoneGolem": {
+      "kind": "boss",
+      "boss": "GreaterBoneGolem",
+      "dungeon": {
+        "key": "jcmission2",
+        "levelName": "JC_Mission2",
+        "name": "Back Alley Deals"
+      },
+      "missions": [
+        "Back Alley Deals"
+      ]
+    },
+    "boss:GreaterSkeletonBoss": {
+      "kind": "boss",
+      "boss": "GreaterSkeletonBoss",
+      "dungeon": {
+        "key": "chmission4",
+        "levelName": "CH_Mission4",
+        "name": "Lord Tilly's Rest"
+      },
+      "missions": [
+        "Lord Tilly's Rest"
+      ]
+    },
+    "boss:GriffonMoon": {
+      "kind": "boss",
+      "boss": "GriffonMoon",
+      "dungeon": {
+        "key": "ommmission9",
+        "levelName": "OMM_Mission9",
+        "name": "The Growing Flame"
+      },
+      "missions": [
+        "The Growing Flame"
+      ]
+    },
+    "boss:GriffonStar": {
+      "kind": "boss",
+      "boss": "GriffonStar",
+      "dungeon": {
+        "key": "btmission2",
+        "levelName": "BT_Mission2",
+        "name": "Svagg's Last Stand"
+      },
+      "missions": [
+        "Svagg's Last Stand"
+      ]
+    },
+    "boss:GriffonSun": {
+      "kind": "boss",
+      "boss": "GriffonSun",
+      "dungeon": {
+        "key": "ommmission7",
+        "levelName": "OMM_Mission7",
+        "name": "Gnole's Roost"
+      },
+      "missions": [
+        "Gnole's Roost"
+      ]
+    },
+    "boss:GuardCaptain": {
+      "kind": "boss",
+      "boss": "GuardCaptain",
+      "dungeon": {
+        "key": "jcmission8",
+        "levelName": "JC_Mission8",
+        "name": "Attack of Opportunity"
+      },
+      "missions": [
+        "The Imperial Barracks"
+      ]
+    },
+    "boss:ImperialChampion": {
+      "kind": "boss",
+      "boss": "ImperialChampion",
+      "dungeon": {
+        "key": "jcmission1",
+        "levelName": "JC_Mission1",
+        "name": "The Welcome Party"
+      },
+      "missions": [
+        "The Welcome Party"
+      ]
+    },
+    "boss:JackalChieftain": {
+      "kind": "boss",
+      "boss": "JackalChieftain",
+      "dungeon": {
+        "key": "chmission8",
+        "levelName": "CH_Mission8",
+        "name": "Gnole's Last Stand"
+      },
+      "missions": [
+        "Gnole's Last Stand",
+        "The Gnole Fortress"
+      ]
+    },
+    "boss:LionLord": {
+      "kind": "boss",
+      "boss": "LionLord",
+      "dungeon": {
+        "key": "ommmission5",
+        "levelName": "OMM_Mission5",
+        "name": "Hunted to the Edge"
+      },
+      "missions": [
+        "Hunted to the Edge"
+      ]
+    },
+    "boss:LizardLord": {
+      "kind": "boss",
+      "boss": "LizardLord",
+      "dungeon": {
+        "key": "srnmission1",
+        "levelName": "SRN_Mission1",
+        "name": "Tower of the Tuatara"
+      },
+      "missions": [
+        "Tower of the Tuatara"
+      ]
+    },
+    "boss:MagmaCyclopsBoss": {
+      "kind": "boss",
+      "boss": "MagmaCyclopsBoss",
+      "dungeon": {
+        "key": "ommmission12",
+        "levelName": "OMM_Mission12",
+        "name": "Death to Meylour"
+      },
+      "missions": [
+        "Death to Meylour"
+      ]
+    },
+    "boss:MeylourBossMage": {
+      "kind": "boss",
+      "boss": "MeylourBossMage",
+      "dungeon": {
+        "key": "btmission3",
+        "levelName": "BT_Mission3",
+        "name": "The Mouth of Meylour"
+      },
+      "missions": [
+        "The Mouth of Meylour"
+      ]
+    },
+    "boss:MummyBoss": {
+      "kind": "boss",
+      "boss": "MummyBoss",
+      "dungeon": {
+        "key": "chmission6",
+        "levelName": "CH_Mission6",
+        "name": "Mausoleum of the Wise"
+      },
+      "missions": [
+        "Mausoleum of the Wise"
+      ]
+    },
+    "boss:NephitDragon": {
+      "kind": "boss",
+      "boss": "NephitDragon",
+      "dungeon": {
+        "key": "jcmission6",
+        "levelName": "JC_Mission6",
+        "name": "Dream Within a Dream"
+      },
+      "missions": [
+        "Dream Within a Dream"
+      ]
+    },
+    "boss:NephitLargeEye": {
+      "kind": "boss",
+      "boss": "NephitLargeEye",
+      "dungeon": {
+        "key": "acmission6",
+        "levelName": "AC_Mission6",
+        "name": "The Capstone"
+      },
+      "missions": [
+        "Capstone"
+      ]
+    },
+    "boss:OasisVizier": {
+      "kind": "boss",
+      "boss": "OasisVizier",
+      "dungeon": {
+        "key": "sdmission4",
+        "levelName": "SD_Mission4",
+        "name": "Goblin Diplomacy"
+      },
+      "missions": [
+        "Goblin Diplomacy"
+      ]
+    },
+    "boss:OutlanderBoss": {
+      "kind": "boss",
+      "boss": "OutlanderBoss",
+      "dungeon": {
+        "key": "sdmission3",
+        "levelName": "SD_Mission3",
+        "name": "Blood and Sand"
+      },
+      "missions": [
+        "Blood and Sand"
+      ]
+    },
+    "boss:PortalMaster": {
+      "kind": "boss",
+      "boss": "PortalMaster",
+      "dungeon": {
+        "key": "jcmission5",
+        "levelName": "JC_Mission5",
+        "name": "Fable of the Lost Temple"
+      },
+      "missions": [
+        "Fable of the Lost Temple"
+      ]
+    },
+    "boss:RageGuardian": {
+      "kind": "boss",
+      "boss": "RageGuardian",
+      "dungeon": {
+        "key": "sdmission1",
+        "levelName": "SD_Mission1",
+        "name": "Unearthing the Past"
+      },
+      "missions": [
+        "Unearthing the Past"
+      ]
+    },
+    "boss:RatlingKing": {
+      "kind": "boss",
+      "boss": "RatlingKing",
+      "dungeon": {
+        "key": "jcmission4",
+        "levelName": "JC_Mission4",
+        "name": "Sewer Suffering"
+      },
+      "missions": [
+        "Sewer Suffering"
+      ]
+    },
+    "boss:RedGhostLord": {
+      "kind": "boss",
+      "boss": "RedGhostLord",
+      "dungeon": {
+        "key": "chmission3",
+        "levelName": "CH_Mission3",
+        "name": "Undying Vendetta"
+      },
+      "missions": [
+        "Undying Vendetta"
+      ]
+    },
+    "boss:RisenBandit": {
+      "kind": "boss",
+      "boss": "RisenBandit",
+      "dungeon": {
+        "key": "jcmission9",
+        "levelName": "JC_Mission9",
+        "name": "Hiding Out"
+      },
+      "missions": [
+        "Hiding Out"
+      ]
+    },
+    "boss:RockCyclopsChieftain": {
+      "kind": "boss",
+      "boss": "RockCyclopsChieftain",
+      "dungeon": {
+        "key": "ommmission8",
+        "levelName": "OMM_Mission8",
+        "name": "Veins of Meylour"
+      },
+      "missions": [
+        "Veins of Meylour"
+      ]
+    },
+    "boss:RockHulkKing": {
+      "kind": "boss",
+      "boss": "RockHulkKing",
+      "dungeon": {
+        "key": "ommmission11",
+        "levelName": "OMM_Mission11",
+        "name": "Meylour's Embers"
+      },
+      "missions": [
+        "Meylour's Embers"
+      ]
+    },
+    "boss:SandWormGreater": {
+      "kind": "boss",
+      "boss": "SandWormGreater",
+      "dungeon": {
+        "key": "sdmission5",
+        "levelName": "SD_Mission5",
+        "name": "Ancient Unrest"
+      },
+      "missions": [
+        "Ancient Unrest"
+      ]
+    },
+    "boss:ScarabScorpion": {
+      "kind": "boss",
+      "boss": "ScarabScorpion",
+      "dungeon": {
+        "key": "sdmission2",
+        "levelName": "SD_Mission2",
+        "name": "Scarab Invasion"
+      },
+      "missions": [
+        "Scarab Invasion"
+      ]
+    },
+    "boss:SpiritDemonMaligner": {
+      "kind": "boss",
+      "boss": "SpiritDemonMaligner",
+      "dungeon": {
+        "key": "acmission4",
+        "levelName": "AC_Mission4",
+        "name": "Aetheric Observatory"
+      },
+      "missions": [
+        "Aetheric Observatory"
+      ]
+    },
+    "boss:SpiritDragon": {
+      "kind": "boss",
+      "boss": "SpiritDragon",
+      "dungeon": {
+        "key": "acmission3",
+        "levelName": "AC_Mission3",
+        "name": "Battles Lost and Won"
+      },
+      "missions": [
+        "Battles Lost and Won"
+      ]
+    },
+    "boss:SwampKing": {
+      "kind": "boss",
+      "boss": "SwampKing",
+      "dungeon": {
+        "key": "srnmission2",
+        "levelName": "SRN_Mission2",
+        "name": "Mystery of the Yornak"
+      },
+      "missions": [
+        "Mystery of the Yornak"
+      ]
+    },
+    "boss:SwampSpiderQueen": {
+      "kind": "boss",
+      "boss": "SwampSpiderQueen",
+      "dungeon": {
+        "key": "swamproadconnectionmission",
+        "levelName": "SwampRoadConnectionMission",
+        "name": "Arachnae's Swamp"
+      },
+      "missions": [
+        "Arachnae's Swamp"
+      ]
+    },
+    "boss:WyrmGreat": {
+      "kind": "boss",
+      "boss": "WyrmGreat",
+      "dungeon": {
+        "key": "srnmission4",
+        "levelName": "SRN_Mission4",
+        "name": "Lair of the Ooyak"
+      },
+      "missions": [
+        "Lair of the Ooyak"
+      ]
+    },
+    "boss:YoungDragonDream": {
+      "kind": "boss",
+      "boss": "YoungDragonDream",
+      "dungeon": {
+        "key": "dreamdragondungeon",
+        "levelName": "DreamDragonDungeon",
+        "name": "The Dragon's Dream"
+      },
+      "missions": [
+        "The Dragon's Dream"
+      ]
+    },
+    "boss:YoungDragonGray": {
+      "kind": "boss",
+      "boss": "YoungDragonGray",
+      "dungeon": {
+        "key": "chmission1",
+        "levelName": "CH_Mission1",
+        "name": "Wither the Witch?"
+      },
+      "missions": [
+        "Wither the Witch?"
+      ]
+    },
+    "boss:YoungDragonGreen": {
+      "kind": "boss",
+      "boss": "YoungDragonGreen",
+      "dungeon": {
+        "key": "srnmission3",
+        "levelName": "SRN_Mission3",
+        "name": "Svar's Spite"
+      },
+      "missions": [
+        "Svar's Spite"
+      ]
+    },
+    "global:1159": {
+      "kind": "global",
+      "label": "Special"
+    },
+    "global:1160": {
+      "kind": "global",
+      "label": "Special"
+    },
+    "global:1161": {
+      "kind": "global",
+      "label": "Special"
+    },
+    "global:1162": {
+      "kind": "global",
+      "label": "Special"
+    },
+    "global:1163": {
+      "kind": "global",
+      "label": "Special"
+    },
+    "global:1164": {
+      "kind": "global",
+      "label": "Special"
+    },
+    "global:1165": {
+      "kind": "global",
+      "label": "Special"
+    },
+    "global:1166": {
+      "kind": "global",
+      "label": "Special"
+    },
+    "global:1167": {
+      "kind": "global",
+      "label": "Special"
+    },
+    "global:1168": {
+      "kind": "global",
+      "label": "Special"
+    },
+    "global:1169": {
+      "kind": "global",
+      "label": "Special"
+    },
+    "global:1170": {
+      "kind": "global",
+      "label": "Special"
+    },
+    "global:1171": {
+      "kind": "global",
+      "label": "Special"
+    },
+    "global:1172": {
+      "kind": "global",
+      "label": "Special"
+    },
+    "global:1173": {
+      "kind": "global",
+      "label": "Special"
+    },
+    "global:1174": {
+      "kind": "global",
+      "label": "Special"
+    },
+    "global:1175": {
+      "kind": "global",
+      "label": "Special"
+    },
+    "global:1176": {
+      "kind": "global",
+      "label": "Special"
+    },
+    "global:1177": {
+      "kind": "global",
+      "label": "Special"
+    },
+    "global:1178": {
+      "kind": "global",
+      "label": "Special"
+    },
+    "global:1179": {
+      "kind": "global",
+      "label": "Special"
+    },
+    "global:1180": {
+      "kind": "global",
+      "label": "Special"
+    },
+    "global:1181": {
+      "kind": "global",
+      "label": "Special"
+    },
+    "global:1182": {
+      "kind": "global",
+      "label": "Special"
+    },
+    "realm:Abomination:15": {
+      "kind": "realm",
+      "realm": "Abomination",
+      "level": 15,
+      "dungeon": {
+        "key": "btmission4",
+        "levelName": "BT_Mission4",
+        "name": "Dereliction of Duty"
+      },
+      "missions": [
+        "Dereliction of Duty"
+      ]
+    },
+    "realm:Construct:25": {
+      "kind": "realm",
+      "realm": "Construct",
+      "level": 25,
+      "dungeon": {
+        "key": "sdmission6",
+        "levelName": "SD_Mission6",
+        "name": "Legacy of the Magi"
+      },
+      "missions": [
+        "Legacy of the Magi"
+      ]
+    },
+    "realm:Cyclops:16": {
+      "kind": "realm",
+      "realm": "Cyclops",
+      "level": 16,
+      "dungeon": {
+        "key": "ommmission3",
+        "levelName": "OMM_Mission3",
+        "name": "Eye of the Tyrant"
+      },
+      "missions": [
+        "Eye of the Tyrant"
+      ]
+    },
+    "realm:Cyclops:17": {
+      "kind": "realm",
+      "realm": "Cyclops",
+      "level": 17,
+      "dungeon": {
+        "key": "ommmission7",
+        "levelName": "OMM_Mission7",
+        "name": "Gnole's Roost"
+      },
+      "missions": [
+        "Gnole's Roost"
+      ]
+    },
+    "realm:Cyclops:18": {
+      "kind": "realm",
+      "realm": "Cyclops",
+      "level": 18,
+      "dungeon": {
+        "key": "ommmission8",
+        "levelName": "OMM_Mission8",
+        "name": "Veins of Meylour"
+      },
+      "missions": [
+        "Veins of Meylour"
+      ]
+    },
+    "realm:Demon:29": {
+      "kind": "realm",
+      "realm": "Demon",
+      "level": 29,
+      "dungeon": {
+        "key": "jcmission5",
+        "levelName": "JC_Mission5",
+        "name": "Fable of the Lost Temple"
+      },
+      "missions": [
+        "Fable of the Lost Temple"
+      ]
+    },
+    "realm:Devourer:19": {
+      "kind": "realm",
+      "realm": "Devourer",
+      "level": 19,
+      "dungeon": {
+        "key": "egmission2",
+        "levelName": "EG_Mission2",
+        "name": "Out on a Limb"
+      },
+      "missions": [
+        "Out on a Limb"
+      ]
+    },
+    "realm:Devourer:8": {
+      "kind": "realm",
+      "realm": "Devourer",
+      "level": 8,
+      "dungeon": {
+        "key": "srnmission7",
+        "levelName": "SRN_Mission7",
+        "name": "The Great Green Svath"
+      },
+      "missions": [
+        "The Great Green Svath"
+      ]
+    },
+    "realm:Dread:21": {
+      "kind": "realm",
+      "realm": "Dread",
+      "level": 21,
+      "dungeon": {
+        "key": "acmission2",
+        "levelName": "AC_Mission2",
+        "name": "The Emerald Throne"
+      },
+      "missions": [
+        "The Emerald Throne"
+      ]
+    },
+    "realm:Dryad:19": {
+      "kind": "realm",
+      "realm": "Dryad",
+      "level": 19,
+      "dungeon": {
+        "key": "egmission1",
+        "levelName": "EG_Mission1",
+        "name": "The Ashen Dryad"
+      },
+      "missions": [
+        "The Ashen Dryad"
+      ]
+    },
+    "realm:Ghost:12": {
+      "kind": "realm",
+      "realm": "Ghost",
+      "level": 12,
+      "dungeon": {
+        "key": "chmission4",
+        "levelName": "CH_Mission4",
+        "name": "Lord Tilly's Rest"
+      },
+      "missions": [
+        "Lord Tilly's Rest"
+      ]
+    },
+    "realm:Ghost:13": {
+      "kind": "realm",
+      "realm": "Ghost",
+      "level": 13,
+      "dungeon": {
+        "key": "chmission3",
+        "levelName": "CH_Mission3",
+        "name": "Undying Vendetta"
+      },
+      "missions": [
+        "Undying Vendetta"
+      ]
+    },
+    "realm:Ghost:17": {
+      "kind": "realm",
+      "realm": "Ghost",
+      "level": 17,
+      "dungeon": {
+        "key": "ommmission4",
+        "levelName": "OMM_Mission4",
+        "name": "Abandoned Armory"
+      },
+      "missions": [
+        "Abandoned Armory"
+      ]
+    },
+    "realm:Ghost:5": {
+      "kind": "realm",
+      "realm": "Ghost",
+      "level": 5,
+      "dungeon": {
+        "key": "dreamdragondungeon",
+        "levelName": "DreamDragonDungeon",
+        "name": "The Dragon's Dream"
+      },
+      "missions": [
+        "The Dragon's Dream"
+      ]
+    },
+    "realm:Giant:24": {
+      "kind": "realm",
+      "realm": "Giant",
+      "level": 24,
+      "dungeon": {
+        "key": "sdmission4",
+        "levelName": "SD_Mission4",
+        "name": "Goblin Diplomacy"
+      },
+      "missions": [
+        "Goblin Diplomacy"
+      ]
+    },
+    "realm:Goblin:17": {
+      "kind": "realm",
+      "realm": "Goblin",
+      "level": 17,
+      "dungeon": {
+        "key": "ommmission10",
+        "levelName": "OMM_Mission10",
+        "name": "All Shall be Ashes"
+      },
+      "missions": [
+        "All Shall be Ashes"
+      ]
+    },
+    "realm:Goblin:3": {
+      "kind": "realm",
+      "realm": "Goblin",
+      "level": 3,
+      "dungeon": {
+        "key": "goblinriverdungeon",
+        "levelName": "GoblinRiverDungeon",
+        "name": "Goblin Camp"
+      },
+      "missions": [
+        "Last of the Goblins"
+      ]
+    },
+    "realm:Human:12": {
+      "kind": "realm",
+      "realm": "Human",
+      "level": 12,
+      "dungeon": {
+        "key": "btmission1",
+        "levelName": "BT_Mission1",
+        "name": "Bandit Camp"
+      },
+      "missions": [
+        "Bandit Problem"
+      ]
+    },
+    "realm:Human:14": {
+      "kind": "realm",
+      "realm": "Human",
+      "level": 14,
+      "dungeon": {
+        "key": "btmission4",
+        "levelName": "BT_Mission4",
+        "name": "Dereliction of Duty"
+      },
+      "missions": [
+        "Dereliction of Duty"
+      ]
+    },
+    "realm:Human:20": {
+      "kind": "realm",
+      "realm": "Human",
+      "level": 20,
+      "dungeon": {
+        "key": "egmission5",
+        "levelName": "EG_Mission5",
+        "name": "Refuge of the Damned"
+      },
+      "missions": [
+        "Refuge of the Damned"
+      ]
+    },
+    "realm:Human:24": {
+      "kind": "realm",
+      "realm": "Human",
+      "level": 24,
+      "dungeon": {
+        "key": "sdmission3",
+        "levelName": "SD_Mission3",
+        "name": "Blood and Sand"
+      },
+      "missions": [
+        "Blood and Sand"
+      ]
+    },
+    "realm:Human:27": {
+      "kind": "realm",
+      "realm": "Human",
+      "level": 27,
+      "dungeon": {
+        "key": "jcmission11",
+        "levelName": "JC_Mission11",
+        "name": "Ring of Fire"
+      },
+      "missions": [
+        "Ring of Fire"
+      ]
+    },
+    "realm:Imperial:27": {
+      "kind": "realm",
+      "realm": "Imperial",
+      "level": 27,
+      "dungeon": {
+        "key": "jcmission1",
+        "levelName": "JC_Mission1",
+        "name": "The Welcome Party"
+      },
+      "missions": [
+        "The Welcome Party"
+      ]
+    },
+    "realm:Imperial:29": {
+      "kind": "realm",
+      "realm": "Imperial",
+      "level": 29,
+      "dungeon": {
+        "key": "jcmini1",
+        "levelName": "JC_Mini1",
+        "name": "The West Wing"
+      },
+      "missions": [
+        "The West Wing"
+      ]
+    },
+    "realm:Lion:17": {
+      "kind": "realm",
+      "realm": "Lion",
+      "level": 17,
+      "dungeon": {
+        "key": "ommmission5",
+        "levelName": "OMM_Mission5",
+        "name": "Hunted to the Edge"
+      },
+      "missions": [
+        "Hunted to the Edge"
+      ]
+    },
+    "realm:Lizard:18": {
+      "kind": "realm",
+      "realm": "Lizard",
+      "level": 18,
+      "dungeon": {
+        "key": "ommmission11",
+        "levelName": "OMM_Mission11",
+        "name": "Meylour's Embers"
+      },
+      "missions": [
+        "Meylour's Embers"
+      ]
+    },
+    "realm:Lizard:22": {
+      "kind": "realm",
+      "realm": "Lizard",
+      "level": 22,
+      "dungeon": {
+        "key": "acmission1",
+        "levelName": "AC_Mission1",
+        "name": "Castle Hocke"
+      },
+      "missions": [
+        "Castle Hocke"
+      ]
+    },
+    "realm:Lizard:6": {
+      "kind": "realm",
+      "realm": "Lizard",
+      "level": 6,
+      "dungeon": {
+        "key": "srnmission1",
+        "levelName": "SRN_Mission1",
+        "name": "Tower of the Tuatara"
+      },
+      "missions": [
+        "Tower of the Tuatara"
+      ]
+    },
+    "realm:Lizard:9": {
+      "kind": "realm",
+      "realm": "Lizard",
+      "level": 9,
+      "dungeon": {
+        "key": "srnmission5",
+        "levelName": "SRN_Mission5",
+        "name": "Citadel of the Vizier"
+      },
+      "missions": [
+        "Citadel of the Vizier"
+      ]
+    },
+    "realm:Minotaur:24": {
+      "kind": "realm",
+      "realm": "Minotaur",
+      "level": 24,
+      "dungeon": {
+        "key": "sdmission3",
+        "levelName": "SD_Mission3",
+        "name": "Blood and Sand"
+      },
+      "missions": [
+        "Blood and Sand"
+      ]
+    },
+    "realm:Mummy:14": {
+      "kind": "realm",
+      "realm": "Mummy",
+      "level": 14,
+      "dungeon": {
+        "key": "chmission6",
+        "levelName": "CH_Mission6",
+        "name": "Mausoleum of the Wise"
+      },
+      "missions": [
+        "Mausoleum of the Wise"
+      ]
+    },
+    "realm:Raptor:20": {
+      "kind": "realm",
+      "realm": "Raptor",
+      "level": 20,
+      "dungeon": {
+        "key": "egmission4",
+        "levelName": "EG_Mission4",
+        "name": "Hope Springs Eternal"
+      },
+      "missions": [
+        "Hope Springs Eternal"
+      ]
+    },
+    "realm:Raptor:23": {
+      "kind": "realm",
+      "realm": "Raptor",
+      "level": 23,
+      "dungeon": {
+        "key": "sdmission1",
+        "levelName": "SD_Mission1",
+        "name": "Unearthing the Past"
+      },
+      "missions": [
+        "Unearthing the Past"
+      ]
+    },
+    "realm:Raptor:29": {
+      "kind": "realm",
+      "realm": "Raptor",
+      "level": 29,
+      "dungeon": {
+        "key": "jcmission4",
+        "levelName": "JC_Mission4",
+        "name": "Sewer Suffering"
+      },
+      "missions": [
+        "Sewer Suffering"
+      ]
+    },
+    "realm:Ratling:29": {
+      "kind": "realm",
+      "realm": "Ratling",
+      "level": 29,
+      "dungeon": {
+        "key": "jcmission4",
+        "levelName": "JC_Mission4",
+        "name": "Sewer Suffering"
+      },
+      "missions": [
+        "Sewer Suffering"
+      ]
+    },
+    "realm:RockHulk:18": {
+      "kind": "realm",
+      "realm": "RockHulk",
+      "level": 18,
+      "dungeon": {
+        "key": "ommmission11",
+        "levelName": "OMM_Mission11",
+        "name": "Meylour's Embers"
+      },
+      "missions": [
+        "Meylour's Embers"
+      ]
+    },
+    "realm:RockHulk:20": {
+      "kind": "realm",
+      "realm": "RockHulk",
+      "level": 20,
+      "dungeon": {
+        "key": "ommmission12",
+        "levelName": "OMM_Mission12",
+        "name": "Death to Meylour"
+      },
+      "missions": [
+        "Death to Meylour"
+      ]
+    },
+    "realm:Scarab:23": {
+      "kind": "realm",
+      "realm": "Scarab",
+      "level": 23,
+      "dungeon": {
+        "key": "sdmission2",
+        "levelName": "SD_Mission2",
+        "name": "Scarab Invasion"
+      },
+      "missions": [
+        "Scarab Invasion"
+      ]
+    },
+    "realm:Scarab:25": {
+      "kind": "realm",
+      "realm": "Scarab",
+      "level": 25,
+      "dungeon": {
+        "key": "sdmission5",
+        "levelName": "SD_Mission5",
+        "name": "Ancient Unrest"
+      },
+      "missions": [
+        "Ancient Unrest"
+      ]
+    },
+    "realm:Shade:23": {
+      "kind": "realm",
+      "realm": "Shade",
+      "level": 23,
+      "dungeon": {
+        "key": "sdmission1",
+        "levelName": "SD_Mission1",
+        "name": "Unearthing the Past"
+      },
+      "missions": [
+        "Unearthing the Past"
+      ]
+    },
+    "realm:Shade:27": {
+      "kind": "realm",
+      "realm": "Shade",
+      "level": 27,
+      "dungeon": {
+        "key": "jcmission5",
+        "levelName": "JC_Mission5",
+        "name": "Fable of the Lost Temple"
+      },
+      "missions": [
+        "Fable of the Lost Temple"
+      ]
+    },
+    "realm:Skeleton:12": {
+      "kind": "realm",
+      "realm": "Skeleton",
+      "level": 12,
+      "dungeon": {
+        "key": "chmission4",
+        "levelName": "CH_Mission4",
+        "name": "Lord Tilly's Rest"
+      },
+      "missions": [
+        "Lord Tilly's Rest"
+      ]
+    },
+    "realm:Skeleton:15": {
+      "kind": "realm",
+      "realm": "Skeleton",
+      "level": 15,
+      "dungeon": {
+        "key": "chmission6",
+        "levelName": "CH_Mission6",
+        "name": "Mausoleum of the Wise"
+      },
+      "missions": [
+        "Mausoleum of the Wise"
+      ]
+    },
+    "realm:Skeleton:28": {
+      "kind": "realm",
+      "realm": "Skeleton",
+      "level": 28,
+      "dungeon": {
+        "key": "jcmission3",
+        "levelName": "JC_Mission3",
+        "name": "The Prodigal Son"
+      },
+      "missions": [
+        "The Prodigal Son"
+      ]
+    },
+    "realm:Skeleton:4": {
+      "kind": "realm",
+      "realm": "Skeleton",
+      "level": 4,
+      "dungeon": {
+        "key": "dreamdragondungeon",
+        "levelName": "DreamDragonDungeon",
+        "name": "The Dragon's Dream"
+      },
+      "missions": [
+        "The Dragon's Dream"
+      ]
+    },
+    "realm:Skeleton:9": {
+      "kind": "realm",
+      "realm": "Skeleton",
+      "level": 9,
+      "dungeon": {
+        "key": "srnmission7",
+        "levelName": "SRN_Mission7",
+        "name": "The Great Green Svath"
+      },
+      "missions": [
+        "The Great Green Svath"
+      ]
+    },
+    "realm:Spider:7": {
+      "kind": "realm",
+      "realm": "Spider",
+      "level": 7,
+      "dungeon": {
+        "key": "srnmission6",
+        "levelName": "SRN_Mission6",
+        "name": "Mindless Queen's Glade"
+      },
+      "missions": [
+        "Mindless Queen's Glade"
+      ]
+    },
+    "realm:Spirit:22": {
+      "kind": "realm",
+      "realm": "Spirit",
+      "level": 22,
+      "dungeon": {
+        "key": "acmission4",
+        "levelName": "AC_Mission4",
+        "name": "Aetheric Observatory"
+      },
+      "missions": [
+        "Aetheric Observatory"
+      ]
+    },
+    "realm:Spirit:29": {
+      "kind": "realm",
+      "realm": "Spirit",
+      "level": 29,
+      "dungeon": {
+        "key": "jcmission6",
+        "levelName": "JC_Mission6",
+        "name": "Dream Within a Dream"
+      },
+      "missions": [
+        "Dream Within a Dream"
+      ]
+    },
+    "realm:Treant:7": {
+      "kind": "realm",
+      "realm": "Treant",
+      "level": 7,
+      "dungeon": {
+        "key": "srnmission6",
+        "levelName": "SRN_Mission6",
+        "name": "Mindless Queen's Glade"
+      },
+      "missions": [
+        "Mindless Queen's Glade"
+      ]
+    },
+    "realm:Wolf:11": {
+      "kind": "realm",
+      "realm": "Wolf",
+      "level": 11,
+      "dungeon": {
+        "key": "chmission1",
+        "levelName": "CH_Mission1",
+        "name": "Wither the Witch?"
+      },
+      "missions": [
+        "Wither the Witch?"
+      ]
+    },
+    "realm:Wolf:15": {
+      "kind": "realm",
+      "realm": "Wolf",
+      "level": 15,
+      "dungeon": {
+        "key": "chmission8",
+        "levelName": "CH_Mission8",
+        "name": "Gnole's Last Stand"
+      },
+      "missions": [
+        "Gnole's Last Stand",
+        "The Gnole Fortress"
+      ]
+    },
+    "realm:Wyrm:8": {
+      "kind": "realm",
+      "realm": "Wyrm",
+      "level": 8,
+      "dungeon": {
+        "key": "srnmission4",
+        "levelName": "SRN_Mission4",
+        "name": "Lair of the Ooyak"
+      },
+      "missions": [
+        "Lair of the Ooyak"
+      ]
+    },
+    "starter:1": {
+      "kind": "starter",
+      "label": "Starter"
+    },
+    "starter:13": {
+      "kind": "starter",
+      "label": "Starter"
+    },
+    "starter:27": {
+      "kind": "starter",
+      "label": "Starter"
+    },
+    "starter:39": {
+      "kind": "starter",
+      "label": "Starter"
+    },
+    "starter:53": {
+      "kind": "starter",
+      "label": "Starter"
+    },
+    "starter:65": {
+      "kind": "starter",
+      "label": "Starter"
+    }
+  }
+}

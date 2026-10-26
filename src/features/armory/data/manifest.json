@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "sourceFiles": {
+    "loginSwz": "cbq/Login.swz",
+    "gameEnSwz": "cbq/Game.en.swz",
+    "dungeonBlitzSwf": "cbp/DungeonBlitz.swf"
+  },
+  "sourceHashes": {
+    "loginSwz": "82570d634aff41f95ed9523936f491749e4d46d8a1201be55d8872922813a3b8",
+    "gameEnSwz": "c55e9a1f63014a13c4ccfabe45dd06e1833c6a6a76eba61e416ee6f3f4ed9c73",
+    "dungeonBlitzSwf": "46cd56ec21783309b282c58223be4e63614a9f861dcc9258eb0d874d06b44877"
+  },
+  "counts": {
+    "bases": 1182,
+    "variants": 3546,
+    "bossBases": 573,
+    "bossVariants": 1719,
+    "realmBases": 579,
+    "realmVariants": 1749,
+    "starterBases": 6,
+    "starterVariants": 6,
+    "specialBases": 24,
+    "specialVariants": 72,
+    "globalBases": 30,
+    "globalVariants": 78,
+    "sources": 147,
+    "bossSources": 64,
+    "realmSources": 53,
+    "starterSources": 6,
+    "globalSources": 24,
+    "dungeons": 65,
+    "missions": 293,
+    "missionsWithDungeon": 168,
+    "missionsInGearDungeons": 130,
+    "missionNames": 67
+  },
+  "classes": {
+    "paladin": {
+      "bases": 394,
+      "variants": 1182,
+      "slots": {
+        "weapon": 157,
+        "offhand": 53,
+        "boots": 40,
+        "armor": 53,
+        "gloves": 40,
+        "head": 51
+      },
+      "subtypes": {
+        "axe": 52,
+        "mace": 52,
+        "sword": 53
+      }
+    },
+    "rogue": {
+      "bases": 394,
+      "variants": 1182,
+      "slots": {
+        "weapon": 157,
+        "offhand": 53,
+        "boots": 40,
+        "armor": 53,
+        "gloves": 40,
+        "head": 51
+      },
+      "subtypes": {
+        "saber": 53,
+        "scepter": 52,
+        "rapier": 52
+      }
+    },
+    "mage": {
+      "bases": 394,
+      "variants": 1182,
+      "slots": {
+        "weapon": 157,
+        "offhand": 53,
+        "boots": 40,
+        "armor": 53,
+        "gloves": 40,
+        "head": 51
+      },
+      "subtypes": {
+        "staff": 157
+      }
+    }
+  },
+  "art": {
+    "uniqueCustomArt": 920,
+    "artKeys": 1183,
+    "iconKeys": 3466,
+    "variantsWithoutPrimaryArt": 54,
+    "variantsWithoutAnyArt": 0
+  }
+}
