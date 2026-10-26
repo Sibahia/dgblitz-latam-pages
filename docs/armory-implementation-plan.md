@@ -5,8 +5,8 @@ releer todo el repositorio. La fuente de verdad del proyecto sigue siendo `AGENT
 este documento solo registra el plan, las decisiones y el estado de la sesión.
 
 - Fecha de creación: 2026-10-26
-- Rama de implementación: `feat/armory`
-- Worktree activo: `C:\Users\danie\Downloads\Daniel\Dev\Code\Calc-Talents DgBlitz-armory`
+- Rama de implementación: `feat/armory` (mergeada en `main` con el PR #2)
+- Worktree de implementación: eliminado tras el merge
 - Worktree principal: `C:\Users\danie\Downloads\Daniel\Dev\Code\Calc-Talents DgBlitz`
 
 ## 1. Regla de trabajo entre sesiones
@@ -523,6 +523,16 @@ npm run build
 
 Actualizar esta sección al final de cada sesión. No borrar el historial; añadir una
 entrada nueva arriba.
+
+### 2026-10-26 — Cierre Sesión 1: PR #2 mergeado
+
+- PR: https://github.com/Sibahia/dgblitz-latam-pages/pull/2
+- Merge commit: `f1bb99c8d4f1aff71c1297c73ff92c9142179845`
+- `main` actualizado y subido a `origin/main`; checks de CI en verde.
+- Worktree `C:\Users\danie\Downloads\Daniel\Dev\Code\Calc-Talents DgBlitz-armory`
+  eliminado; `git worktree list` solo muestra el worktree principal.
+- Rama `feat/armory` mergeada; sin cambios pendientes.
+- Siguiente: Sesión 2 — rutas `/equipo` y `/en/gear`, i18n y shell de la Armería.
 
 ### 2026-10-26 — Sesión 1: dataset generado
 
