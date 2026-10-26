@@ -44,3 +44,6 @@ desktop.ini
 # Python
 __pycache__/
 *.pyc
+
+# Armory spike raw exports
+scripts/armory-spike/out/raw/

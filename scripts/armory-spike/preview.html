@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Armory · Spike de assets</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #efe6d3;
+      --bg-deep: #d9c7a4;
+      --panel: #fbf6e8;
+      --panel-2: #f3e8d2;
+      --text: #241b10;
+      --muted: #6d5a42;
+      --line: #b9a27a;
+      --gold: #b57b0c;
+      --gold-soft: #e5c56b;
+      --teal: #1d5b5e;
+      --shadow: 0 18px 40px rgba(60, 40, 10, .16);
+      --checker-a: #e7dcc7;
+      --checker-b: #d8cbb2;
+    }
+    [data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #14100c;
+      --bg-deep: #090705;
+      --panel: #211a13;
+      --panel-2: #2b2218;
+      --text: #f3e6cc;
+      --muted: #b6a489;
+      --line: #5a472e;
+      --gold: #e0b24a;
+      --gold-soft: #f0d58a;
+      --teal: #2f7f80;
+      --shadow: 0 22px 50px rgba(0, 0, 0, .45);
+      --checker-a: #1b1611;
+      --checker-b: #241d15;
+    }
+    * { box-sizing: border-box; }
+    html { min-height: 100%; background: var(--bg); }
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: "Alegreya Sans", "Segoe UI", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--gold) 12%, transparent), transparent 30rem),
+        radial-gradient(circle at 88% 12%, color-mix(in srgb, var(--teal) 12%, transparent), transparent 28rem),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+      background-attachment: fixed;
+    }
+    .masthead, main, footer { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+    .masthead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 34px 0 22px;
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+    }
+    .brand { display: flex; align-items: center; gap: 16px; }
+    .crest {
+      display: grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      flex: none;
+      border: 1px solid var(--gold);
+      border-radius: 14px 4px 14px 4px;
+      background: linear-gradient(145deg, color-mix(in srgb, var(--gold) 26%, var(--panel)), var(--panel));
+      color: var(--gold-soft);
+      font-family: Cinzel, "Palatino Linotype", Georgia, serif;
+      font-size: 1.05rem;
+      letter-spacing: .08em;
+      box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--bg) 65%, transparent), var(--shadow);
+    }
+    .eyebrow {
+      margin: 0 0 5px;
+      color: var(--gold);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 {
+      margin: 0;
+      font-family: Cinzel, "Palatino Linotype", Georgia, serif;
+      font-weight: 600;
+      letter-spacing: .01em;
+    }
+    h1 { font-size: clamp(1.7rem, 3.2vw, 2.6rem); line-height: 1.05; }
+    h2 { font-size: clamp(1.35rem, 2.2vw, 1.9rem); }
+    h3 { font-size: 1.12rem; }
+    .head-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
+    .status {
+      padding: 8px 12px;
+      border: 1px solid color-mix(in srgb, var(--teal) 55%, var(--line));
+      border-radius: 999px;
+      color: color-mix(in srgb, var(--teal) 70%, var(--text));
+      background: color-mix(in srgb, var(--teal) 10%, var(--panel));
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+    .theme-button {
+      appearance: none;
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--text);
+      font: inherit;
+      font-size: .82rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+    .theme-button:hover { border-color: var(--gold); color: var(--gold-soft); }
+    .theme-button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+    main { padding: 28px 0 64px; }
+    .intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(240px, .6fr);
+      gap: 28px;
+      align-items: end;
+      padding: 24px 0 34px;
+    }
+    .intro p { max-width: 68ch; margin: 12px 0 0; color: var(--muted); line-height: 1.65; }
+    .intro-note {
+      padding: 16px 18px;
+      border-left: 2px solid var(--gold);
+      color: var(--muted);
+      background: color-mix(in srgb, var(--panel) 70%, transparent);
+      font-size: .9rem;
+      line-height: 1.55;
+    }
+    .intro-note strong { color: var(--text); }
+    section { padding: 34px 0; border-top: 1px solid color-mix(in srgb, var(--line) 55%, transparent); }
+    .section-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, .7fr); gap: 18px; align-items: end; margin-bottom: 22px; }
+    .section-head p { margin: 0; color: var(--muted); line-height: 1.55; font-size: .92rem; }
+    .samples { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .sample {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      border: 1px solid color-mix(in srgb, var(--line) 75%, transparent);
+      border-radius: 12px 3px 12px 3px;
+      background:
+        linear-gradient(160deg, color-mix(in srgb, var(--panel) 92%, var(--gold) 8%), var(--panel));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .sample-art {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 22px 18px;
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 45%, transparent);
+      background:
+        radial-gradient(circle at 50% 40%, color-mix(in srgb, var(--gold) 12%, transparent), transparent 70%),
+        color-mix(in srgb, var(--bg-deep) 35%, var(--panel));
+    }
+    .plate, .slot { position: relative; flex: none; }
+    .plate { width: 80px; height: 80px; }
+    .slot { width: 64px; height: 64px; }
+    .plate-frame, .slot-frame { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .plate-icon { position: absolute; left: 14px; top: 14px; width: 52px; height: 52px; }
+    .slot-icon { position: absolute; left: 8px; top: 8px; width: 48px; height: 48px; }
+    .sample-copy { padding: 18px 18px 12px; }
+    .sample-title { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .rarity {
+      display: inline-grid;
+      place-items: center;
+      width: 26px;
+      height: 26px;
+      flex: none;
+      border: 1px solid currentColor;
+      border-radius: 50%;
+      font-family: Cinzel, Georgia, serif;
+      font-size: .72rem;
+      font-weight: 700;
+    }
+    .rarity-m { color: #b57b0c; background: color-mix(in srgb, #b57b0c 12%, transparent); }
+    .rarity-r { color: #7f8b91; background: color-mix(in srgb, #7f8b91 14%, transparent); }
+    .rarity-l { color: #d7a21c; background: color-mix(in srgb, #d7a21c 16%, transparent); }
+    .meta { margin: 5px 0 14px; color: var(--muted); font-size: .82rem; letter-spacing: .02em; }
+    .sizes { display: flex; align-items: flex-end; gap: 14px; }
+    .sizes figure { margin: 0; }
+    .checker {
+      display: grid;
+      place-items: center;
+      border: 1px solid color-mix(in srgb, var(--line) 55%, transparent);
+      border-radius: 6px;
+      background-color: var(--checker-a);
+      background-image:
+        linear-gradient(45deg, var(--checker-b) 25%, transparent 25%),
+        linear-gradient(-45deg, var(--checker-b) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, var(--checker-b) 75%),
+        linear-gradient(-45deg, transparent 75%, var(--checker-b) 75%);
+      background-size: 12px 12px;
+      background-position: 0 0, 0 6px, 6px -6px, -6px 0;
+    }
+    .sizes .checker { padding: 5px; }
+    .sizes img { display: block; }
+    figcaption { margin-top: 6px; color: var(--muted); font-size: .7rem; text-align: center; }
+    .sample-foot {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: auto;
+      padding: 12px 18px;
+      border-top: 1px solid color-mix(in srgb, var(--line) 45%, transparent);
+      color: var(--muted);
+      font-size: .76rem;
+    }
+    .sample-foot img { width: 34px; height: 34px; flex: none; }
+    .legibility {
+      display: flex;
+      align-items: flex-end;
+      gap: 26px;
+      flex-wrap: wrap;
+      padding: 18px;
+      border: 1px solid color-mix(in srgb, var(--line) 55%, transparent);
+      border-radius: 10px;
+      background: color-mix(in srgb, var(--panel) 70%, transparent);
+    }
+    .legibility-item { display: grid; gap: 8px; justify-items: center; }
+    .legibility-item img { display: block; }
+    .legibility-item span { color: var(--muted); font-size: .72rem; }
+    .ui-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+    .ui-item {
+      display: grid;
+      gap: 8px;
+      justify-items: center;
+      padding: 16px 10px 12px;
+      border: 1px solid color-mix(in srgb, var(--line) 55%, transparent);
+      border-radius: 8px;
+      background: color-mix(in srgb, var(--panel) 70%, transparent);
+    }
+    .ui-item .checker { padding: 8px; width: 100%; min-height: 104px; }
+    .ui-item img { display: block; max-width: 100%; max-height: 104px; object-fit: contain; }
+    .ui-item figcaption { margin: 0; line-height: 1.35; }
+    .decisions { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr); gap: 30px; }
+    .decisions > div { min-width: 0; }
+    .decisions .section-head { grid-template-columns: 1fr; }
+    .decisions dl { margin: 0; display: grid; gap: 14px; }
+    .decisions dl > div { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 14px; padding-bottom: 14px; border-bottom: 1px solid color-mix(in srgb, var(--line) 40%, transparent); }
+    .decisions dt { color: var(--gold); font-size: .76rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .decisions dd { margin: 0; color: var(--muted); line-height: 1.55; font-size: .9rem; }
+    .decisions dd strong { color: var(--text); }
+    .verify {
+      align-self: start;
+      padding: 20px;
+      border: 1px solid color-mix(in srgb, var(--line) 65%, transparent);
+      border-radius: 12px 3px 12px 3px;
+      background: linear-gradient(160deg, color-mix(in srgb, var(--panel) 88%, var(--teal) 12%), var(--panel));
+      box-shadow: var(--shadow);
+    }
+    .verify-art { display: flex; align-items: center; gap: 16px; }
+    .verify-art img { width: 56px; height: 56px; }
+    .verify-art img + img { width: 80px; height: 80px; }
+    .verify p { margin: 14px 0 0; color: var(--muted); font-size: .84rem; line-height: 1.55; }
+    footer {
+      padding: 20px 0 34px;
+      border-top: 1px solid color-mix(in srgb, var(--line) 55%, transparent);
+      color: var(--muted);
+      font-size: .78rem;
+      line-height: 1.5;
+    }
+    code {
+      padding: 1px 5px;
+      border: 1px solid color-mix(in srgb, var(--line) 45%, transparent);
+      border-radius: 4px;
+      background: color-mix(in srgb, var(--bg) 50%, var(--panel));
+      color: var(--text);
+      font-family: Consolas, "Cascadia Code", monospace;
+      font-size: .88em;
+    }
+    @media (max-width: 940px) {
+      .samples { grid-template-columns: 1fr; }
+      .intro, .section-head, .decisions { grid-template-columns: 1fr; }
+      .intro-note { max-width: 68ch; }
+    }
+    @media (max-width: 560px) {
+      .masthead { align-items: flex-start; flex-direction: column; }
+      .head-actions { justify-content: flex-start; }
+      .decisions dl > div { grid-template-columns: 1fr; gap: 5px; }
+      .sample-art { gap: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="brand">
+      <span class="crest" aria-hidden="true">DB</span>
+      <div>
+        <p class="eyebrow">Dungeon Blitz · Armería</p>
+        <h1>Spike de assets</h1>
+      </div>
+    </div>
+    <div class="head-actions">
+      <span class="status">Sesión 0 · pipeline validado</span>
+      <button class="theme-button" id="theme-toggle" type="button" aria-pressed="true">Tema: oscuro</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="intro-title">
+      <div>
+        <p class="eyebrow" id="intro-title">FFDec + Pillow · 8x → 56 px</p>
+        <p>Prueba de reconstrucción de iconos de equipo con las capas reales del cliente: origen común desde los bounds del SWF, orden de capas, <code>ColorSwap</code> y composición con placa y ranura del juego.</p>
+      </div>
+      <p class="intro-note"><strong>Sin inventar arte.</strong> Los tres objetos salen de <code>Gfx_Paladin_1.swf</code> y de sus entradas de <code>GearTypes.xml</code>. La UI sale de <code>UI_1</code>, <code>UI_4</code> y <code>UI_Library</code>.</p>
+    </section>
+
+    <section aria-labelledby="samples-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">01 · Muestra</p>
+          <h2 id="samples-title">Tres iconos, tres rarezas</h2>
+        </div>
+        <p>Una placa por rareza, una ranura común y el icono a 56 px y 112 px. La placa pequeña de la derecha es la composición real generada con Pillow.</p>
+      </div>
+      <div class="samples">
+        <article class="sample">
+          <div class="sample-art">
+            <div class="plate">
+              <img class="plate-frame" src="../../src/assets/game/armory/ui/_DoodadItemPlateBronze01.png" alt="">
+              <img class="plate-icon" src="../../src/assets/game/armory/icons/AxeStarter1-56.png" alt="">
+            </div>
+            <div class="slot">
+              <img class="slot-frame" src="../../src/assets/game/armory/ui/a_EmptyGearSlotMoveable.png" alt="">
+              <img class="slot-icon" src="../../src/assets/game/armory/icons/AxeStarter1-56.png" alt="">
+            </div>
+          </div>
+          <div class="sample-copy">
+            <div class="sample-title">
+              <h3>AxeStarter1</h3>
+              <span class="rarity rarity-m" title="Magic">M</span>
+            </div>
+            <p class="meta">Sword · Paladin · placa bronce</p>
+            <div class="sizes">
+              <figure class="checker">
+                <img src="../../src/assets/game/armory/icons/AxeStarter1-56.png" width="56" height="56" alt="Hacha de muestra a 56 px">
+                <figcaption>56 px</figcaption>
+              </figure>
+              <figure class="checker">
+                <img src="../../src/assets/game/armory/icons/AxeStarter1-112.png" width="112" height="112" alt="Hacha de muestra a 112 px">
+                <figcaption>112 px · 2x</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="sample-foot">
+            <img src="out/plates/AxeStarter1-80.png" alt="">
+            <span>Pillow · placa 80 px</span>
+          </div>
+        </article>
+
+        <article class="sample">
+          <div class="sample-art">
+            <div class="plate">
+              <img class="plate-frame" src="../../src/assets/game/armory/ui/_DoodadItemPlateSilver01.png" alt="">
+              <img class="plate-icon" src="../../src/assets/game/armory/icons/ArmorStore3R-56.png" alt="">
+            </div>
+            <div class="slot">
+              <img class="slot-frame" src="../../src/assets/game/armory/ui/a_EmptyGearSlotMoveable.png" alt="">
+              <img class="slot-icon" src="../../src/assets/game/armory/icons/ArmorStore3R-56.png" alt="">
+            </div>
+          </div>
+          <div class="sample-copy">
+            <div class="sample-title">
+              <h3>ArmorStore3R</h3>
+              <span class="rarity rarity-r" title="Rare">R</span>
+            </div>
+            <p class="meta">Armor · Paladin · placa plata</p>
+            <div class="sizes">
+              <figure class="checker">
+                <img src="../../src/assets/game/armory/icons/ArmorStore3R-56.png" width="56" height="56" alt="Armadura de muestra a 56 px">
+                <figcaption>56 px</figcaption>
+              </figure>
+              <figure class="checker">
+                <img src="../../src/assets/game/armory/icons/ArmorStore3R-112.png" width="112" height="112" alt="Armadura de muestra a 112 px">
+                <figcaption>112 px · 2x</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="sample-foot">
+            <img src="out/plates/ArmorStore3R-80.png" alt="">
+            <span>Pillow · placa 80 px</span>
+          </div>
+        </article>
+
+        <article class="sample">
+          <div class="sample-art">
+            <div class="plate">
+              <img class="plate-frame" src="../../src/assets/game/armory/ui/_DoodadItemPlateGold01.png" alt="">
+              <img class="plate-icon" src="../../src/assets/game/armory/icons/BracersStore6L-56.png" alt="">
+            </div>
+            <div class="slot">
+              <img class="slot-frame" src="../../src/assets/game/armory/ui/a_EmptyGearSlotMoveable.png" alt="">
+              <img class="slot-icon" src="../../src/assets/game/armory/icons/BracersStore6L-56.png" alt="">
+            </div>
+          </div>
+          <div class="sample-copy">
+            <div class="sample-title">
+              <h3>BracersStore6L</h3>
+              <span class="rarity rarity-l" title="Legendary">L</span>
+            </div>
+            <p class="meta">Gloves · Paladin · placa oro</p>
+            <div class="sizes">
+              <figure class="checker">
+                <img src="../../src/assets/game/armory/icons/BracersStore6L-56.png" width="56" height="56" alt="Guante de muestra a 56 px">
+                <figcaption>56 px</figcaption>
+              </figure>
+              <figure class="checker">
+                <img src="../../src/assets/game/armory/icons/BracersStore6L-112.png" width="112" height="112" alt="Guante de muestra a 112 px">
+                <figcaption>112 px · 2x</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="sample-foot">
+            <img src="out/plates/BracersStore6L-80.png" alt="">
+            <span>Pillow · placa 80 px</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="legibility-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">02 · Legibilidad</p>
+          <h2 id="legibility-title">56 px no es el límite</h2>
+        </div>
+        <p>El icono se genera desde el render a 8x y se reduce con LANCZOS. A 32 px el hacha y la armadura siguen leyéndose; el guante pierde el detalle de la muñeca.</p>
+      </div>
+      <div class="legibility">
+        <div class="legibility-item"><img src="../../src/assets/game/armory/icons/AxeStarter1-56.png" width="56" height="56" alt=""><span>Axe · 56</span></div>
+        <div class="legibility-item"><img src="../../src/assets/game/armory/icons/AxeStarter1-56.png" width="48" height="48" alt=""><span>Axe · 48</span></div>
+        <div class="legibility-item"><img src="../../src/assets/game/armory/icons/AxeStarter1-56.png" width="32" height="32" alt=""><span>Axe · 32</span></div>
+        <div class="legibility-item"><img src="../../src/assets/game/armory/icons/ArmorStore3R-56.png" width="56" height="56" alt=""><span>Armor · 56</span></div>
+        <div class="legibility-item"><img src="../../src/assets/game/armory/icons/ArmorStore3R-56.png" width="48" height="48" alt=""><span>Armor · 48</span></div>
+        <div class="legibility-item"><img src="../../src/assets/game/armory/icons/ArmorStore3R-56.png" width="32" height="32" alt=""><span>Armor · 32</span></div>
+        <div class="legibility-item"><img src="../../src/assets/game/armory/icons/BracersStore6L-56.png" width="56" height="56" alt=""><span>Gloves · 56</span></div>
+        <div class="legibility-item"><img src="../../src/assets/game/armory/icons/BracersStore6L-56.png" width="48" height="48" alt=""><span>Gloves · 48</span></div>
+        <div class="legibility-item"><img src="../../src/assets/game/armory/icons/BracersStore6L-56.png" width="32" height="32" alt=""><span>Gloves · 32</span></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="ui-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">03 · UI</p>
+          <h2 id="ui-title">Doce piezas del juego</h2>
+        </div>
+        <p>Iconos de clase, placas, ranura, máscaras y el icono de engranaje. Las máscaras se muestran sobre damero porque son rellenos planos para <code>mask-image</code> o tintado.</p>
+      </div>
+      <div class="ui-grid">
+        <figure class="ui-item">
+          <div class="checker"><img src="../../src/assets/game/armory/ui/a_Icon_paladin.png" alt="Icono de clase Paladín"></div>
+          <figcaption>Clase · Paladín</figcaption>
+        </figure>
+        <figure class="ui-item">
+          <div class="checker"><img src="../../src/assets/game/armory/ui/a_Icon_rogue.png" alt="Icono de clase Rogue"></div>
+          <figcaption>Clase · Rogue</figcaption>
+        </figure>
+        <figure class="ui-item">
+          <div class="checker"><img src="../../src/assets/game/armory/ui/a_Icon_mage.png" alt="Icono de clase Mage"></div>
+          <figcaption>Clase · Mage</figcaption>
+        </figure>
+        <figure class="ui-item">
+          <div class="checker"><img src="../../src/assets/game/armory/ui/_DoodadItemPlateBronze01.png" alt="Placa bronce"></div>
+          <figcaption>Placa · bronce · M</figcaption>
+        </figure>
+        <figure class="ui-item">
+          <div class="checker"><img src="../../src/assets/game/armory/ui/_DoodadItemPlateSilver01.png" alt="Placa plata"></div>
+          <figcaption>Placa · plata · R</figcaption>
+        </figure>
+        <figure class="ui-item">
+          <div class="checker"><img src="../../src/assets/game/armory/ui/_DoodadItemPlateGold01.png" alt="Placa oro"></div>
+          <figcaption>Placa · oro · L</figcaption>
+        </figure>
+        <figure class="ui-item">
+          <div class="checker"><img src="../../src/assets/game/armory/ui/a_EmptyGearSlotMoveable.png" alt="Ranura vacía"></div>
+          <figcaption>Ranura vacía</figcaption>
+        </figure>
+        <figure class="ui-item">
+          <div class="checker"><img src="../../src/assets/game/armory/ui/_DoodadArmoryItemWrapperMain.png" alt="Máscara de wrapper"></div>
+          <figcaption>Máscara · wrapper</figcaption>
+        </figure>
+        <figure class="ui-item">
+          <div class="checker"><img src="../../src/assets/game/armory/ui/_DoodadArmoryButtonMask01.png" alt="Máscara de botón"></div>
+          <figcaption>Máscara · botón</figcaption>
+        </figure>
+        <figure class="ui-item">
+          <div class="checker"><img src="../../src/assets/game/armory/ui/_DoodadGearHolderStub.png" alt="Máscara de soporte"></div>
+          <figcaption>Máscara · soporte</figcaption>
+        </figure>
+        <figure class="ui-item">
+          <div class="checker"><img src="../../src/assets/game/armory/ui/_DoodadGearSelectedTall.png" alt="Máscara de selección"></div>
+          <figcaption>Máscara · selección</figcaption>
+        </figure>
+        <figure class="ui-item">
+          <div class="checker"><img src="../../src/assets/game/armory/ui/a_NotificationIcon_Gear.png" alt="Icono de engranaje"></div>
+          <figcaption>Icono · gear</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="decisions" aria-labelledby="decisions-title">
+      <div>
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">04 · Decisiones</p>
+            <h2 id="decisions-title">Lo que queda validado</h2>
+          </div>
+        </div>
+        <dl>
+          <div>
+            <dt>Origen</dt>
+            <dd>Los PNG de FFDec vienen recortados. El origen común se reconstruye con los bounds del XML del SWF: <code>twips / 20 * zoom</code>. Después se recorta el alfa y se centra. <code>LocOffset</code> es <code>0,0</code> en todas las entradas revisadas.</dd>
+          </div>
+          <div>
+            <dt>Capas</dt>
+            <dd>Arma: <code>SwordGrip</code> + <code>Sword</code>. Armadura: una capa. Guantes: mano <code>HandFist4</code> + tres capas <code>GloveLeather03</code>. El orden visual funciona; la animación real puede usar otras poses.</dd>
+          </div>
+          <div>
+            <dt>ColorSwap</dt>
+            <dd>Reemplazo RGB exacto sobre píxeles opacos. Los colores con nombre se resuelven desde <code>DungeonBlitz.as</code> (<code>gPaleBrown</code>, <code>gSilver</code>, <code>gBronze</code>…). Render a 8x y reducción LANCZOS; los flecos de antialias no se ven a 56 px.</dd>
+          </div>
+          <div>
+            <dt>$Female</dt>
+            <dd>La clase real de <code>ArmorLion04$Female</code> es <code>a_Torso2_ArmorLion04Female</code> (3948). La clase 3600 existe, pero ninguna entrada de <code>GearTypes.xml</code> la referencia.</dd>
+          </div>
+          <div>
+            <dt>Rarezas</dt>
+            <dd>M/R/L = Magic/Rare/Legendary. La correspondencia con bronce/plata/oro es coherente con <code>gBronze</code>, <code>gSilver</code> y <code>gGold</code> y con los nombres de las placas; se usará como decisión de spike.</dd>
+          </div>
+          <div>
+            <dt>Tamaño</dt>
+            <dd>56 px funciona para los tres objetos; 112 px queda como 2x. No se exportan todavía los 3.466 iconos.</dd>
+          </div>
+          <div>
+            <dt>UI</dt>
+            <dd>12 piezas seleccionadas. <code>a_ArmoryWindow</code> es una captura de referencia, no un frame; los marcos se reconstruirán con piezas y <code>border-image</code>.</dd>
+          </div>
+        </dl>
+      </div>
+      <aside class="verify" aria-labelledby="verify-title">
+        <p class="eyebrow" id="verify-title">Verificación extra</p>
+        <div class="verify-art">
+          <img src="out/verify/ArmorStore3-M-56.png" alt="Armadura con ColorSwap por nombre">
+          <img src="out/plates/ArmorStore3-M-80.png" alt="Armadura con placa bronce">
+        </div>
+        <p><strong>ArmorStore3 M</strong> usa <code>gPaleBrown</code> y <code>gPaleBrownDk</code>. El resultado verde/marrón confirma que el mapa de colores con nombre funciona; no se envía como icono de muestra para no duplicar la armadura.</p>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    Dump del cliente leído en modo solo lectura. Solo se copiaron los assets que usa este spike: 3 iconos, 12 piezas de UI y sus variantes 2x. Preview local de la Sesión 0.
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const button = document.getElementById("theme-toggle");
+    const stored = localStorage.getItem("armory-spike-theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    function setTheme(theme) {
+      root.dataset.theme = theme;
+      button.textContent = theme === "dark" ? "Tema: oscuro" : "Tema: claro";
+      button.setAttribute("aria-pressed", String(theme === "dark"));
+      localStorage.setItem("armory-spike-theme", theme);
+    }
+
+    setTheme(stored || (prefersDark ? "dark" : "light"));
+    button.addEventListener("click", () => {
+      setTheme(root.dataset.theme === "dark" ? "light" : "dark");
+    });
+  </script>
+</body>
+</html>

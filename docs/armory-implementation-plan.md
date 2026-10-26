@@ -148,10 +148,14 @@ mantener el orden real o aplicar la excepción del usuario.
 - 30 IDs globales/especiales: 6 iniciales + 24 especiales.
 - 78 variantes globales: 6 variantes M iniciales + 72 especiales (24 × 3).
 - 24 especiales: 8 por clase; mismo nombre en las tres rarezas y `Level` vacío.
-- 64 jefes, 53 claves reino+nivel, 65 mazmorras y 293 misiones.
-- 920 valores únicos de `CustomArt`; 1.424 variantes multicapa; 1.183 combinaciones de
-  arte; 3.466 combinaciones únicas de arte+color.
-- Hat: 405/459 variantes con arte; 54 sin `CustomArt` y necesitan fallback.
+- 64 jefes, 53 claves reino+nivel, 65 mazmorras y 293 misiones; 130 filas de misión
+  caen dentro de las mazmorras de equipo y producen 67 nombres únicos.
+- 920 valores únicos de `CustomArt`; 1.183 combinaciones de arte; 3.466 combinaciones
+  únicas de arte+color. Hay 1.430 variantes con alguna capa secundaria y 1.424 si se
+  exigen al menos dos capas.
+- Hat: 405/459 variantes con arte; 54 sin `CustomArt` primario: 48 Rogue con
+  `CustomArt2+3` y 6 Paladín solo con `CustomArt2`. No hay variantes sin ninguna capa;
+  se conservan las capas secundarias y el fallback se decide en la Sesión 4.
 - No hay iconos oficiales por ítem. `ScreenArmory` usa paperdoll; los thumbnails son una
   reconstrucción del arte.
 - `MissionTypes` no contiene recompensas; la relación gear → misión se hace por
@@ -193,7 +197,7 @@ mantener el orden real o aplicar la excepción del usuario.
 - `useLocale` debe conservar `location.search` además del hash.
 - El selector de clase va arriba y siempre visible; no se oculta en un menú.
 
-### Esquema de datos previsto
+### Esquema de datos implementado
 
 ```ts
 type Rarity = 'M' | 'R' | 'L'
@@ -205,7 +209,7 @@ interface GearVariant {
   level: number | null
   artKey: string
   iconKey: string
-  source: GearSource
+  sourceId: string
 }
 
 interface GearItem {
@@ -216,15 +220,33 @@ interface GearItem {
   variants: GearVariant[]
 }
 
+interface DungeonRef {
+  key: string
+  levelName: string
+  name: string
+}
+
 type GearSource =
-  | { kind: 'boss'; boss: string; dungeon: string; missions: string[] }
-  | { kind: 'realm'; realm: string; level: number; dungeon: string; missions: string[] }
-  | { kind: 'starter'; label: string }
-  | { kind: 'global'; label: string }
+  | { kind: 'boss'; boss: string; dungeon: DungeonRef; missions: string[] }
+  | { kind: 'realm'; realm: string; level: number; dungeon: DungeonRef; missions: string[] }
+  | { kind: 'starter'; label: 'Starter' }
+  | { kind: 'global'; label: 'Special' }
 ```
 
-Los nombres de ítems se guardan exactamente como aparecen en `Login.swz`; solo se
-traducen las etiquetas de la interfaz.
+- Las fuentes viven una sola vez en `sources.json`, indexadas por `sourceId`; cada
+  variante guarda solo ese ID.
+- IDs: `boss:<BossName>`, `realm:<Realm>:<level>`, `starter:<GearID>`,
+  `global:<GearID>`.
+- `sourceId` iniciales: M usa `starter:<id>`; R/L usan `realm:Ghost:5` (nivel 5,
+  mazmorra `DreamDragonDungeon`, “The Dragon's Dream”).
+- Los 24 especiales usan `global:<id>`, nivel `null`; el filtro global suma iniciales
+  y especiales (30 IDs / 78 variantes).
+- `sources.json` contiene 147 registros: 64 jefes, 53 reinos, 6 iniciales y 24
+  globales. Los globales/iniciales no tienen mazmorra ni misiones.
+- `artKey = CustomArt|CustomArt2|CustomArt3`; `iconKey = artKey#ColorSwap1|...|ColorSwap10`.
+  Se normalizan hex y se conservan capas vacías.
+- Los nombres de ítems se guardan exactamente como aparecen en `Login.swz`; solo se
+  traducen las etiquetas de la interfaz.
 
 ## 5. Dirección visual y reglas de UI
 
@@ -279,7 +301,7 @@ Archivos previstos:
 - `scripts/` o script one-off fuera del build
 - `docs/armory-implementation-plan.md`
 
-### Sesión 1 — Dataset
+### Sesión 1 — Dataset (completada)
 
 Tareas:
 
@@ -292,6 +314,20 @@ Tareas:
    - Mago: `StaffMelee`.
 5. Validar conteos, fuentes, rarezas, niveles y los 6 IDs iniciales mixtos.
 6. Añadir tests de integridad del dataset.
+
+Implementación:
+
+- Script: `dungeon-blitz/src/server/scripts/export_armory_site_data.ts` (one-off,
+  fuera del build del sitio).
+- Comando:
+  `npx ts-node scripts/export_armory_site_data.ts --out "C:\Users\danie\Downloads\Daniel\Dev\Code\Calc-Talents DgBlitz-armory\src\features\armory\data"`
+  desde `dungeon-blitz/src/server`.
+- Los mapas jefe/reino se extraen de `DungeonBlitz.swf` con los opcodes
+  `0x60/0x2c/0x2c/0x61` y los nombres de multiname `var_22`/`var_32`.
+- `LevelTypes` se normaliza quitando `A_Level_` y `Hard`; se prefiere la entrada normal.
+- `MissionTypes` se deduplica por mazmorra y nombre; se descartan las 125 misiones sin
+  `Dungeon`.
+- `GearTypes` se agrupa por `GearID`; las 20 plantillas `GearID=0` se ignoran.
 
 Criterio de salida:
 
@@ -463,6 +499,14 @@ npm run build
 - Se extrae todo el arte; no hay iconos oficiales.
 - No se inventan estadísticas, niveles, jefes ni misiones.
 - El build es estático y autocontenido.
+- El dataset se genera con un script one-off externo y se versiona solo la salida JSON.
+- Las fuentes se normalizan en `sources.json`; las variantes guardan `sourceId`.
+- Los 6 iniciales M usan `starter`; sus R/L usan `realm:Ghost:5`. Los 24 especiales
+  usan `global`; iniciales + especiales forman el filtro global (30 IDs / 78 variantes).
+- Los 54 sombreros sin `CustomArt` primario conservan sus capas secundarias; el
+  fallback de icono se decide en la Sesión 4.
+- `MissionTypes` se deduplica por nombre de misión; no se inventan misiones para
+  globales.
 
 ## 10. Decisiones pendientes
 
@@ -472,15 +516,127 @@ npm run build
    en las placas del juego.
 3. **Tamaño de icono:** 56 px es la primera opción; subir a 64 px solo si el spike
    demuestra que 56 px pierde detalle.
-4. **Estado sucio de `main`:** decidir si se commitea antes del worktree o se copian
-   manualmente los archivos.
-5. **Globales:** confirmar que van en una sección al final y también en el filtro
-   `fuente=global`.
+4. **Fallback de 54 sombreros:** decidir entre `_DoodadItemPlateBlankIcon01`, icono de
+   ranura o composición de capas secundarias en la Sesión 4.
 
 ## 11. Estado de sesión
 
 Actualizar esta sección al final de cada sesión. No borrar el historial; añadir una
 entrada nueva arriba.
+
+### 2026-10-26 — Sesión 1: dataset generado
+
+- Rama/worktree: `feat/armory` en
+  `C:\Users\danie\Downloads\Daniel\Dev\Code\Calc-Talents DgBlitz-armory`.
+- Último commit anterior: `cbbc21a`; los cambios de Sesión 0 y Sesión 1 se commitean
+  al cerrar esta sesión.
+- Fase: Sesión 1 completada; siguiente es Sesión 2 (rutas, i18n y shell).
+- Hecho:
+  - Creado el script one-off externo
+    `dungeon-blitz/src/server/scripts/export_armory_site_data.ts`; reutiliza
+    `parseSwz`, `parseSwf`, `parseAbc` y `disassemble`.
+  - Generados `paladin.json`, `rogue.json`, `mage.json`, `sources.json` y
+    `manifest.json` en `src/features/armory/data/`.
+  - Añadidos `src/features/armory/types.ts` y `src/features/armory/data/index.ts`.
+  - Añadidos tests de integridad en
+    `src/features/armory/data/armoryData.test.ts`.
+  - Dataset validado: 1.182 bases / 3.546 variantes; 394 / 1.182 por clase.
+  - Fuentes: 147 registros (64 jefes, 53 reinos, 6 iniciales, 24 globales); 0 sin
+    resolver; 65 mazmorras.
+  - Misiones: 293 totales, 168 con mazmorra, 130 dentro de mazmorras de equipo y 67
+    nombres únicos.
+  - Arte: 920 `CustomArt` únicos, 1.183 `artKey`, 3.466 `iconKey`, 54 variantes sin
+    capa primaria y 0 sin ninguna capa.
+  - Añadidos hashes SHA-256 de las tres fuentes a `manifest.json`.
+- En curso: nada; handoff.
+- Siguiente: Sesión 2 — rutas `/equipo` y `/en/gear`, i18n y shell de la Armería.
+- Archivos tocados:
+  - `src/features/armory/types.ts`
+  - `src/features/armory/data/index.ts`
+  - `src/features/armory/data/armoryData.test.ts`
+  - `src/features/armory/data/paladin.json`
+  - `src/features/armory/data/rogue.json`
+  - `src/features/armory/data/mage.json`
+  - `src/features/armory/data/sources.json`
+  - `src/features/armory/data/manifest.json`
+  - `docs/armory-implementation-plan.md`
+- Comandos ejecutados:
+  - `npx ts-node scripts/export_armory_site_data.ts --out "...\src\features\armory\data"`
+  - `npm run typecheck`
+  - `npm run test:run`
+  - `npm run lint`
+  - `npm run check`
+- Tests/build: `npm run check` correcto; 24/24 tests, typecheck, lint y build.
+- Decisiones:
+  - El script no se versiona en el sitio; solo se versiona la salida JSON.
+  - `sources.json` normaliza las fuentes; las variantes guardan `sourceId`.
+  - Iniciales M → `starter`; R/L → `realm:Ghost:5`. Especiales → `global`.
+  - `artKey` conserva las tres capas; `iconKey` añade los diez `ColorSwap`.
+  - Las misiones se deduplican por nombre dentro de cada mazmorra.
+- Bloqueos:
+  - Fallback de los 54 sombreros sin `CustomArt` primario: Sesión 4.
+  - Mapeo M/R/L a placas y orden real de capas: verificar en Sesión 3/4.
+- Riesgos:
+  - Los JSON de clase suman ~1,59 MB; importar las tres clases en el bundle inicial
+    puede inflarlo. La Sesión 2/3 debe cargar por clase o lazy.
+
+### 2026-10-26 — Sesión 0: spike de assets validado
+
+- Rama/worktree: `feat/armory` en
+  `C:\Users\danie\Downloads\Daniel\Dev\Code\Calc-Talents DgBlitz-armory`.
+- Último commit: `cbbc21a`; los cambios de esta sesión quedan sin commit.
+- Fase: Sesión 0 completada; siguiente es Sesión 1 (dataset).
+- Hecho:
+  - Exportados y compuestos tres iconos Paladín con FFDec + Pillow:
+    `AxeStarter1` (M, bronce), `ArmorStore3R` (R, plata) y `BracersStore6L`
+    (L, oro), a 56 px y 112 px.
+  - Confirmado que `ArmorLion04$Female` usa
+    `a_Torso2_ArmorLion04Female` (3948); la clase 3600 no la referencia ningún
+    `Gear`.
+  - Resuelto `ColorSwap` con colores con nombre de `DungeonBlitz.as`; probado
+    `ArmorStore3-M` con `gPaleBrown`/`gPaleBrownDk`.
+  - Elegido guante sobre botas para la tercera muestra: icono cuadrado y
+    legible; las botas eran alargadas.
+  - Copiadas 12 piezas de UI a `src/assets/game/armory/ui/`.
+  - Creados `scripts/armory-spike/export_armory_spike.py` y
+    `scripts/armory-spike/preview.html`; el preview tiene tema claro/oscuro.
+  - Revisado el preview en Chromium headless a 1440 px y 390 px, en claro y
+    oscuro; corregido el layout de la sección de decisiones.
+  - `npm run check` en verde: 15 tests, typecheck, lint y build.
+- En curso: nada; handoff.
+- Siguiente: Sesión 1 — generar el dataset desde `Login.swz`, `Game.en.swz` y
+  los mapas de `DungeonBlitz.swf`.
+- Archivos tocados:
+  - `scripts/armory-spike/export_armory_spike.py`
+  - `scripts/armory-spike/preview.html`
+  - `scripts/armory-spike/out/` (placas, ranuras y verificación)
+  - `src/assets/game/armory/icons/`
+  - `src/assets/game/armory/ui/`
+  - `.gitignore` (`scripts/armory-spike/out/raw/`)
+  - este plan
+- Comandos ejecutados:
+  - `python scripts/armory-spike/export_armory_spike.py`
+  - `npm run check`
+  - capturas con Playwright/Chromium del preview en claro, oscuro y móvil.
+- Tests/build: `npm run check` correcto; 15/15 tests.
+- Decisiones:
+  - Icono de equipo a 56 px (112 px como 2x); no exportar aún los 3.466.
+  - Orden visual de capas: arma grip + hoja; guantes mano + tres capas del
+    brazo izquierdo. La animación real puede usar otras poses.
+  - M/R/L = Magic/Rare/Legendary; bronce/plata/oro como decisión de spike.
+  - `out/raw/` se ignora; `out/plates` y `out/verify` se conservan para el
+    preview.
+- Bloqueos:
+  - El orden real de capas en la animación no está verificado; la composición
+    es representativa.
+  - El mapeo M/R/L a placas no está verificado en el código de `ScreenArmory`.
+  - El parser de bounds no está preparado para los 3.466 iconos
+    (rendimiento/rotación/multiframe).
+  - Nombres finales en inglés pendientes de `Login.swz` en la Sesión 1.
+- Riesgos:
+  - El preview depende de `out/plates/` y `out/verify/`; si se regeneran, hay
+    que mantener esos nombres.
+  - `a_ArmoryWindow` es una captura de referencia, no un frame reutilizable.
 
 ### 2026-10-26 — Sesión 0: worktree preparado
 
