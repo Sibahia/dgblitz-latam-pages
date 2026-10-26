@@ -528,8 +528,8 @@ entrada nueva arriba.
 
 - Rama/worktree: `feat/armory` en
   `C:\Users\danie\Downloads\Daniel\Dev\Code\Calc-Talents DgBlitz-armory`.
-- Último commit anterior: `cbbc21a`; los cambios de Sesión 0 y Sesión 1 se commitean
-  al cerrar esta sesión.
+- Último commit de implementación: `a571323` (Sesión 0 + Sesión 1); esta entrada se
+  actualiza en el commit de cierre documental.
 - Fase: Sesión 1 completada; siguiente es Sesión 2 (rutas, i18n y shell).
 - Hecho:
   - Creado el script one-off externo
