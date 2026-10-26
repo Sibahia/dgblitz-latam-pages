@@ -5,8 +5,8 @@ releer todo el repositorio. La fuente de verdad del proyecto sigue siendo `AGENT
 este documento solo registra el plan, las decisiones y el estado de la sesión.
 
 - Fecha de creación: 2026-10-26
-- Rama de implementación prevista: `feat/armory`
-- Worktree previsto: `C:\Users\danie\Downloads\Daniel\Dev\Code\Calc-Talents DgBlitz-armory`
+- Rama de implementación: `feat/armory`
+- Worktree activo: `C:\Users\danie\Downloads\Daniel\Dev\Code\Calc-Talents DgBlitz-armory`
 - Worktree principal: `C:\Users\danie\Downloads\Daniel\Dev\Code\Calc-Talents DgBlitz`
 
 ## 1. Regla de trabajo entre sesiones
@@ -481,6 +481,23 @@ npm run build
 
 Actualizar esta sección al final de cada sesión. No borrar el historial; añadir una
 entrada nueva arriba.
+
+### 2026-10-26 — Sesión 0: worktree preparado
+
+- Rama/worktree: `feat/armory` en
+  `C:\Users\danie\Downloads\Daniel\Dev\Code\Calc-Talents DgBlitz-armory`.
+- `main`: commit `970482e` (`docs: add armory implementation plan`).
+- Fase: Sesión 0 iniciada; spike de assets pendiente.
+- Hecho:
+  - Commit en `main` con `AGENTS.md`, `LICENSE`, `README.md` y este plan.
+  - Worktree creado desde `main` en la ruta indicada.
+  - `npm ci` y `npm run check` en verde: 15 tests y build correcto.
+- Siguiente tarea: exportar UI y tres iconos de muestra; validar origen,
+  capas, `ColorSwap` y legibilidad a 56 px.
+- Bloqueos:
+  - Confirmar si se mantiene el orden real de ranuras o la excepción
+    Paladín/Casco.
+  - Verificar el mapa de placas M/R/L a bronce/plata/oro en el spike.
 
 ### 2026-10-26 — Plan documentado
 
