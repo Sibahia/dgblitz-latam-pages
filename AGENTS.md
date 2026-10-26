@@ -25,9 +25,10 @@ Dungeon Blitz (2012) fan/reference site: documentary and guide content plus a ta
 
 ## Stack and commands
 - Stack: Vite + React + TypeScript. Frontend-only; the build must be static and deployable to both GitHub Pages and Vercel.
+- Package manager: pnpm (`pnpm-lock.yaml`). Do not use npm or yarn.
 - The app is already scaffolded in the repo root. Do not re-scaffold or run generators that could overwrite `.agents/` or `skills-lock.json`.
-- Commands: `npm install`, `npm run dev`, `npm run build`, `npm run preview`.
-- Quality commands: `npm run lint` (Oxlint), `npm run typecheck`, `npm run test`, `npm run test:run`, and `npm run check` (lint + typecheck + tests + build). CI runs these before deployment.
+- Commands: `pnpm install`, `pnpm dev`, `pnpm build`, `pnpm preview`.
+- Quality commands: `pnpm lint` (Oxlint), `pnpm typecheck`, `pnpm test`, `pnpm test:run`, and `pnpm check` (lint + typecheck + tests + build). CI runs these before deployment.
 
 ## Deployment constraints
 - GitHub Pages project sites live under a subpath. Make Vite `base` configurable via env and use relative asset URLs; never hardcode `/`-rooted assets.

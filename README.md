@@ -34,13 +34,13 @@ Sitio fan y de referencia de **Dungeon Blitz (2012)**: contenido documental, gu�
 ## Requisitos
 
 - Node.js 22 o superior (ver `.nvmrc`).
-- npm.
+- pnpm 11 o superior.
 
 ## Inicio rápido
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 Abre `http://localhost:5173/`. La calculadora está en `/calculadora` y las guías en `/guias`; las versiones en inglés viven bajo `/en`.
@@ -60,14 +60,14 @@ VITE_BASE_PATH=/
 
 | Comando | Descripción |
 | --- | --- |
-| `npm run dev` | Servidor de desarrollo de Vite. |
-| `npm run build` | Typecheck y build estático en `dist/`. |
-| `npm run preview` | Sirve localmente el build de `dist/`. |
-| `npm run lint` | Ejecuta Oxlint. |
-| `npm run typecheck` | Ejecuta TypeScript sin emitir. |
-| `npm run test` | Vitest en modo watch. |
-| `npm run test:run` | Vitest una sola vez. |
-| `npm run check` | Lint + typecheck + tests + build. |
+| `pnpm dev` | Servidor de desarrollo de Vite. |
+| `pnpm build` | Typecheck y build estático en `dist/`. |
+| `pnpm preview` | Sirve localmente el build de `dist/`. |
+| `pnpm lint` | Ejecuta Oxlint. |
+| `pnpm typecheck` | Ejecuta TypeScript sin emitir. |
+| `pnpm test` | Vitest en modo watch. |
+| `pnpm test:run` | Vitest una sola vez. |
+| `pnpm check` | Lint + typecheck + tests + build. |
 
 ## Estructura del proyecto
 
@@ -133,7 +133,7 @@ Importa el repositorio en Vercel. `vercel.json` define el comando de build, el d
 Antes de abrir un pull request ejecuta:
 
 ```bash
-npm run check
+pnpm check
 ```
 
 Esto valida lint, tipos, tests y build de producción.
@@ -144,7 +144,7 @@ Esto valida lint, tipos, tests y build de producción.
 2. Crea una rama a partir de `main`.
 3. Mantén la paridad entre `src/i18n/es.ts` y `src/i18n/en.ts`; español es el idioma por defecto.
 4. Verifica cualquier dato de juego contra el cliente original. No se aceptan valores inventados.
-5. Ejecuta `npm run check` y abre el pull request con una descripción clara.
+5. Ejecuta `pnpm check` y abre el pull request con una descripción clara.
 
 ## Licencia y atribución
 

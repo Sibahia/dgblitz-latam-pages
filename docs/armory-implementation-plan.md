@@ -85,12 +85,12 @@ git worktree add "..\Calc-Talents DgBlitz-armory" feat/armory
 ### Preparar dependencias
 
 ```powershell
-npm ci
-npm run check
+pnpm install --frozen-lockfile
+pnpm check
 ```
 
-`npm ci` instala dependencias en el worktree; no copiar `node_modules` entre worktrees.
-Anotar en el estado si `npm run check` falla antes de tocar código, para no confundir
+`pnpm install --frozen-lockfile` instala dependencias en el worktree; no copiar `node_modules` entre worktrees.
+Anotar en el estado si `pnpm check` falla antes de tocar código, para no confundir
 errores previos con errores de la Armería.
 
 ### Trabajo diario
@@ -353,7 +353,7 @@ Criterio de salida:
 - Ambas rutas cargan.
 - El selector de clase cambia `?clase=`.
 - El idioma no pierde filtros.
-- `npm run typecheck` y tests de rutas/i18n pasan.
+- `pnpm typecheck` y tests de rutas/i18n pasan.
 
 ### Sesión 3 — Vertical slice
 
@@ -417,7 +417,7 @@ Criterio de salida:
 
 Tareas:
 
-1. `npm run check`.
+1. `pnpm check`.
 2. Tests de filtros, agrupación, URL, i18n y dataset.
 3. QA con Playwright/`webapp-testing` en 1440, 768 y 390.
 4. Si el skill ofrece inspector de navegador, usarlo para revisar la UI; documentar las
@@ -428,7 +428,7 @@ Tareas:
 
 Criterio de salida:
 
-- `npm run check` en verde.
+- `pnpm check` en verde.
 - Sin requests externos ni assets fuera del build.
 - Navegación por teclado y móvil correcta.
 - Documentación actualizada.
@@ -473,15 +473,15 @@ git worktree list
 
 # Worktree
 git worktree add -b feat/armory "..\Calc-Talents DgBlitz-armory" main
-npm ci
-npm run check
+pnpm install --frozen-lockfile
+pnpm check
 
 # Desarrollo
-npm run dev
-npm run lint
-npm run typecheck
-npm run test:run
-npm run build
+pnpm dev
+pnpm lint
+pnpm typecheck
+pnpm test:run
+pnpm build
 
 # FFDec
 & "C:\Users\danie\Downloads\Daniel\Dev\Code\dungeon-blitz\tools\ffdec\ffdec.bat" -help export
@@ -572,11 +572,11 @@ entrada nueva arriba.
   - `docs/armory-implementation-plan.md`
 - Comandos ejecutados:
   - `npx ts-node scripts/export_armory_site_data.ts --out "...\src\features\armory\data"`
-  - `npm run typecheck`
-  - `npm run test:run`
-  - `npm run lint`
-  - `npm run check`
-- Tests/build: `npm run check` correcto; 24/24 tests, typecheck, lint y build.
+  - `pnpm typecheck`
+  - `pnpm test:run`
+  - `pnpm lint`
+  - `pnpm check`
+- Tests/build: `pnpm check` correcto; 24/24 tests, typecheck, lint y build.
 - Decisiones:
   - El script no se versiona en el sitio; solo se versiona la salida JSON.
   - `sources.json` normaliza las fuentes; las variantes guardan `sourceId`.
@@ -612,7 +612,7 @@ entrada nueva arriba.
     `scripts/armory-spike/preview.html`; el preview tiene tema claro/oscuro.
   - Revisado el preview en Chromium headless a 1440 px y 390 px, en claro y
     oscuro; corregido el layout de la sección de decisiones.
-  - `npm run check` en verde: 15 tests, typecheck, lint y build.
+  - `pnpm check` en verde: 15 tests, typecheck, lint y build.
 - En curso: nada; handoff.
 - Siguiente: Sesión 1 — generar el dataset desde `Login.swz`, `Game.en.swz` y
   los mapas de `DungeonBlitz.swf`.
@@ -626,9 +626,9 @@ entrada nueva arriba.
   - este plan
 - Comandos ejecutados:
   - `python scripts/armory-spike/export_armory_spike.py`
-  - `npm run check`
+  - `pnpm check`
   - capturas con Playwright/Chromium del preview en claro, oscuro y móvil.
-- Tests/build: `npm run check` correcto; 15/15 tests.
+- Tests/build: `pnpm check` correcto; 15/15 tests.
 - Decisiones:
   - Icono de equipo a 56 px (112 px como 2x); no exportar aún los 3.466.
   - Orden visual de capas: arma grip + hoja; guantes mano + tres capas del
@@ -657,7 +657,7 @@ entrada nueva arriba.
 - Hecho:
   - Commit en `main` con `AGENTS.md`, `LICENSE`, `README.md` y este plan.
   - Worktree creado desde `main` en la ruta indicada.
-  - `npm ci` y `npm run check` en verde: 15 tests y build correcto.
+  - `pnpm install --frozen-lockfile` y `pnpm check` en verde: 15 tests y build correcto.
 - Siguiente tarea: exportar UI y tres iconos de muestra; validar origen,
   capas, `ColorSwap` y legibilidad a 56 px.
 - Bloqueos:
