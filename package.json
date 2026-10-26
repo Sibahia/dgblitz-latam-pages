@@ -1,7 +1,7 @@
 {
   "name": "dgblitz-latam-pages",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Guía y calculadora de talentos de Dungeon Blitz (2012), en español e inglés.",
   "license": "GPL-3.0-only",
   "homepage": "https://sibahia.github.io/dgblitz-latam-pages/",
