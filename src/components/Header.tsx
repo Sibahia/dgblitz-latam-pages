@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import { Link, NavLink } from 'react-router-dom'
-import { routePath, type RouteKey } from '../app/paths'
-import { useTheme } from '../app/providers/ThemeProvider'
-import { useLocale } from '../app/useLocale'
+import { routePath, type RouteKey } from '@/app/paths'
+import { useTheme } from '@/app/providers/ThemeProvider'
+import { useLocale } from '@/app/useLocale'
 import styles from './Header.module.css'
 
 const NAV_ITEMS: Array<{ route: RouteKey; label: string }> = [

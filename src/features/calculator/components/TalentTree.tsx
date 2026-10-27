@@ -6,9 +6,9 @@ import {
   getUnlockedSlots,
   MAX_TALENT_LEVEL,
   type StoneMap,
-} from '../model/calculator'
-import { iconUrl, TREE, UI, type DisciplineMeta } from '../data/meta'
-import styles from '../calculator.module.css'
+} from '@/features/calculator/model/calculator'
+import { iconUrl, TREE, UI, type DisciplineMeta } from '@/features/calculator/data/meta'
+import styles from '@/features/calculator/calculator.module.css'
 
 interface TalentTreeProps {
   discipline: DisciplineMeta
@@ -29,6 +29,7 @@ export function TalentTree({
   const viewportRef = useRef<HTMLDivElement>(null)
   const unlockedSlots = getUnlockedSlots(stones, pointsSpent)
   const skillStates = getSkillStates(stones, pointsSpent)
+  const skillSheet = UI.skillSheets[discipline.id]
 
   useEffect(() => {
     const viewport = viewportRef.current
@@ -54,8 +55,23 @@ export function TalentTree({
         aria-label={t('calculator.tree')}
       >
         <div className={styles.treeCanvas}>
-          <img className={styles.treePortrait} src={discipline.portrait} alt="" loading="lazy" />
-          <img className={styles.treeArt} src={UI.treeArt} alt="" />
+          <img
+            className={styles.treePortrait}
+            src={discipline.portrait}
+            alt=""
+            width="381"
+            height="382"
+            decoding="async"
+          />
+          <img
+            className={styles.treeArt}
+            src={UI.treeArt}
+            alt=""
+            width="608"
+            height="608"
+            fetchPriority="high"
+            decoding="async"
+          />
           {TREE.talentSlots.map((slot) => {
             const stone = stones[slot.id]
             const talent = stone ? discipline.data.talents[stone.talentId] : undefined
@@ -97,13 +113,28 @@ export function TalentTree({
               >
                 {stone && talent ? (
                   <>
-                    <img className={styles.slotIcon} src={iconUrl(talent.icon)} alt="" />
+                    <img
+                      className={styles.slotIcon}
+                      src={iconUrl(talent.icon)}
+                      alt=""
+                      width="52"
+                      height="52"
+                      loading="lazy"
+                      decoding="async"
+                    />
                     <span className={styles.slotLevel}>
                       {stone.talentLevel + 1}/{capacity}
                     </span>
                   </>
                 ) : !unlocked ? (
-                  <img className={styles.slotClosed} src={UI.closedSlot} alt="" />
+                  <img
+                    className={styles.slotClosed}
+                    src={UI.closedSlot}
+                    alt=""
+                    width="36"
+                    height="36"
+                    decoding="async"
+                  />
                 ) : (
                   <span className={styles.slotCapacity}>{capacity}</span>
                 )}
@@ -115,7 +146,7 @@ export function TalentTree({
             const skill = discipline.data.skills[skillId]
             const state = skillStates[skillId]
             if (!skill || !state) return null
-            const position = getSkillSpritePosition(skillId, discipline.id, state.unlocked)
+            const position = getSkillSpritePosition(skillId, state.unlocked)
             return (
               <button
                 key={skillId}
@@ -124,7 +155,7 @@ export function TalentTree({
                 style={{
                   left: skillSlot.pos[0] - 32,
                   top: skillSlot.pos[1] - 32,
-                  backgroundImage: `url(${UI.skillSprite})`,
+                  backgroundImage: `url(${skillSheet})`,
                   backgroundPosition: `${position.x}px ${position.y}px`,
                 }}
                 onClick={() => onSkillClick(skillId)}

@@ -2,21 +2,21 @@ import { lazy, Suspense } from 'react'
 import { useTranslation } from 'react-i18next'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { AppShell } from './AppShell'
-import { ThemeProvider } from './providers/ThemeProvider'
+import { ThemeProvider } from '@/app/providers/ThemeProvider'
 
 const HomePage = lazy(() =>
-  import('../features/home/HomePage').then((module) => ({ default: module.HomePage })),
+  import('@/features/home/HomePage').then((module) => ({ default: module.HomePage })),
 )
 const CalculatorPage = lazy(() =>
-  import('../features/calculator/CalculatorPage').then((module) => ({
+  import('@/features/calculator/CalculatorPage').then((module) => ({
     default: module.CalculatorPage,
   })),
 )
 const GuidesPage = lazy(() =>
-  import('../features/guides/GuidesPage').then((module) => ({ default: module.GuidesPage })),
+  import('@/features/guides/GuidesPage').then((module) => ({ default: module.GuidesPage })),
 )
 const NotFoundPage = lazy(() =>
-  import('../features/not-found/NotFoundPage').then((module) => ({
+  import('@/features/not-found/NotFoundPage').then((module) => ({
     default: module.NotFoundPage,
   })),
 )

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useDocumentMeta } from '../../app/useDocumentMeta'
-import { DEFAULT_DISCIPLINE_ID, DISCIPLINES, getDiscipline, TREE } from './data/meta'
+import { useDocumentMeta } from '@/app/useDocumentMeta'
+import { DEFAULT_DISCIPLINE_ID, DISCIPLINES, getDiscipline, TREE } from '@/features/calculator/data/meta'
 import {
   addPointToSlot,
   countPoints,
@@ -14,12 +14,12 @@ import {
   talentEntries,
   undoLastPoint,
   type StoneMap,
-} from './model/calculator'
-import { DetailPanel, type DetailState } from './components/DetailPanel'
-import { DisciplineNav } from './components/DisciplineNav'
-import { StatsPanel } from './components/StatsPanel'
-import { TalentTray } from './components/TalentTray'
-import { TalentTree } from './components/TalentTree'
+} from '@/features/calculator/model/calculator'
+import { DetailPanel, type DetailState } from '@/features/calculator/components/DetailPanel'
+import { DisciplineNav } from '@/features/calculator/components/DisciplineNav'
+import { StatsPanel } from '@/features/calculator/components/StatsPanel'
+import { TalentTray } from '@/features/calculator/components/TalentTray'
+import { TalentTree } from '@/features/calculator/components/TalentTree'
 import styles from './calculator.module.css'
 
 interface BuildState {

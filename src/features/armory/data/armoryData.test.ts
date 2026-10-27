@@ -6,7 +6,7 @@ import {
   ARMORY_SOURCES,
   getGearItem,
 } from './index'
-import type { BossGearSource, GearSource, RealmGearSource } from '../types'
+import type { BossGearSource, GearSource, RealmGearSource } from '@/features/armory/types'
 
 const allItems = ARMORY_CLASSES.flatMap((className) => ARMORY_DATA[className].items)
 const allVariants = allItems.flatMap((item) => item.variants)

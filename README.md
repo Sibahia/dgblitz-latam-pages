@@ -88,6 +88,8 @@ src/
   styles/                 Tokens y estilos globales
 ```
 
+Los imports usan el alias `@/` para referirse a `src/` (configurado en `tsconfig.app.json` y `vite.config.ts`); solo los archivos de la misma carpeta se importan con `./`.
+
 ## Datos de la calculadora
 
 Los datos viven en `src/features/calculator/data/`:
@@ -116,6 +118,23 @@ Ese directorio es **de solo lectura**: no se edita, no se mueve y no se commitea
 
 El build final no debe cargar nada desde esa ruta externa ni desde CDNs: los assets se empaquetan con el sitio.
 
+### Pipeline WebP
+
+El sitio importa únicamente `.webp`. Los PNG/JPG originales se conservan como fuente no importada y no se empaquetan.
+
+```bash
+pnpm assets:optimize   # regenera los WebP y muestra el reporte de tamaños
+pnpm assets:check      # comprueba que todos los WebP esperados existen
+pnpm assets:check:dist # audita dist: sin PNG/JPG, sin data:image y sin imágenes >200 KB
+```
+
+- UI, sprites e iconos: WebP lossless con alpha.
+- Retratos y fondo: WebP lossy q82–85, con alpha lossless en los retratos.
+- `master-skills` se divide en 9 hojas de 195×130 (`master-skills-0.webp`…`master-skills-8.webp`) para no cargar el sprite sheet completo.
+- Los retratos tienen variantes de 382, 256 y 96 px; la home usa `srcSet`/`sizes` y las miniaturas cargan la de 96 px.
+- El fondo tiene variantes de 960 y 1440 px; el CSS elige una según el ancho de viewport.
+- Los imports usan `?url&no-inline` para evitar que Vite convierta iconos pequeños en base64 dentro del JS. `vite.config.ts` también excluye `src/assets/game/` del inlining.
+
 ## Despliegue
 
 ### GitHub Pages
@@ -136,7 +155,7 @@ Antes de abrir un pull request ejecuta:
 pnpm check
 ```
 
-Esto valida lint, tipos, tests y build de producción.
+Esto valida lint, tipos, tests, assets WebP y build de producción, y audita `dist/` para evitar PNG/JPG o imágenes inline.
 
 ## Contribuir
 

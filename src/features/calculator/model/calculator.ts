@@ -1,4 +1,4 @@
-import { DEFAULT_DISCIPLINE_ID, TREE } from '../data/meta'
+import { DEFAULT_DISCIPLINE_ID, TREE } from '@/features/calculator/data/meta'
 import type {
   BuildSlot,
   DecodedBuild,
@@ -7,7 +7,7 @@ import type {
   StatSummary,
   Talent,
   TreeData,
-} from '../data/types'
+} from '@/features/calculator/data/types'
 
 export const TREE_SIZE = 608
 export const TALENT_TIER_COUNT = 14
@@ -143,16 +143,11 @@ export function getRequiredTotemLevel(pointsSpent: number): number {
   return Math.max(1, Math.ceil((pointsSpent - 40) / 5))
 }
 
-export function getSkillSpritePosition(
-  skillId: number,
-  disciplineId: number,
-  unlocked: boolean,
-): { x: number; y: number } {
-  const classId = Math.floor(disciplineId / 3)
-  const x = -65 * (skillId + 3 * (disciplineId % 3))
-  const baseY = -130 * classId
-  const y = unlocked ? baseY : baseY - 65
-  return { x, y }
+export function getSkillSpritePosition(skillId: number, unlocked: boolean): { x: number; y: number } {
+  return {
+    x: -65 * skillId || 0,
+    y: unlocked ? 0 : -65,
+  }
 }
 
 export function encodeBuild(

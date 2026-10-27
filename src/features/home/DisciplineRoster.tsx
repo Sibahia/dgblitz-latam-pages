@@ -1,9 +1,9 @@
 import type { CSSProperties } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { routePath } from '../../app/paths'
-import { useLocale } from '../../app/useLocale'
-import { CLASSES, DISCIPLINE_SUMMARIES } from '../calculator/data/disciplines'
+import { routePath } from '@/app/paths'
+import { useLocale } from '@/app/useLocale'
+import { CLASSES, DISCIPLINE_SUMMARIES } from '@/features/calculator/data/disciplines'
 import styles from './home.module.css'
 
 function classNoteKey(className: string): string {
@@ -46,11 +46,12 @@ export function DisciplineRoster() {
                     >
                       <span className={styles.disciplinePortrait}>
                         <img
-                          src={discipline.portrait}
+                          src={discipline.portraitSmall}
                           alt=""
-                          width="381"
-                          height="382"
+                          width="96"
+                          height="96"
                           loading="lazy"
+                          decoding="async"
                         />
                       </span>
                       <span className={styles.disciplineBody}>

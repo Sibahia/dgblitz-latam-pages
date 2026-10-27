@@ -23,7 +23,10 @@
     "typecheck": "tsc -b",
     "test": "vitest",
     "test:run": "vitest run",
-    "check": "pnpm lint && pnpm typecheck && pnpm test:run && pnpm build"
+    "assets:optimize": "node scripts/optimize-assets.mjs",
+    "assets:check": "node scripts/optimize-assets.mjs --check",
+    "assets:check:dist": "node scripts/check-dist-assets.mjs",
+    "check": "pnpm lint && pnpm typecheck && pnpm test:run && pnpm assets:check && pnpm build && pnpm assets:check:dist"
   },
   "dependencies": {
     "@fontsource/alegreya-sans": "^5.3.0",
@@ -44,6 +47,7 @@
     "@vitejs/plugin-react": "^6.1.2",
     "jsdom": "^29.1.1",
     "oxlint": "^1.88.0",
+    "sharp": "^0.35.5",
     "typescript": "~6.0.3",
     "vite": "^8.3.4",
     "vitest": "^5.0.5"

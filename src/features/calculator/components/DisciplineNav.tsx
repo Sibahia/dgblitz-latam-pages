@@ -1,7 +1,7 @@
 import { useEffect, useRef, type CSSProperties } from 'react'
 import { useTranslation } from 'react-i18next'
-import { DISCIPLINES, UI } from '../data/meta'
-import styles from '../calculator.module.css'
+import { DISCIPLINES, UI } from '@/features/calculator/data/meta'
+import styles from '@/features/calculator/calculator.module.css'
 
 interface DisciplineNavProps {
   disciplineId: number

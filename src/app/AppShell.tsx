@@ -1,8 +1,8 @@
 import { useEffect, type ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router-dom'
-import { Footer } from '../components/Footer'
-import { Header } from '../components/Header'
+import { Footer } from '@/components/Footer'
+import { Header } from '@/components/Header'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
