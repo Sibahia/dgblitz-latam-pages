@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { routePath } from '../../app/paths'
-import { useDocumentMeta } from '../../app/useDocumentMeta'
-import { useLocale } from '../../app/useLocale'
+import { routePath } from '@/app/paths'
+import { useDocumentMeta } from '@/app/useDocumentMeta'
+import { useLocale } from '@/app/useLocale'
 import styles from './guides.module.css'
 
 const SECTIONS = [

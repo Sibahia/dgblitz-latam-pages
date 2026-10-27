@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { DEFAULT_DISCIPLINE_ID, getDiscipline, TREE } from '../data/meta'
+import { DEFAULT_DISCIPLINE_ID, getDiscipline, TREE } from '@/features/calculator/data/meta'
 import {
   addPointToSlot,
   canSocketTalent,
@@ -7,6 +7,7 @@ import {
   countPoints,
   decodeBuild,
   encodeBuild,
+  getSkillSpritePosition,
   getSkillStates,
   getUnlockedSlots,
   isSlotUnlocked,
@@ -102,6 +103,26 @@ describe('socketing rules', () => {
     const next = undoLastPoint(socketed.history, socketed.stones)
     expect(next.stones[0]).toBeUndefined()
     expect(next.history).toEqual([])
+  })
+})
+
+describe('skill sprite positions', () => {
+  it('uses local coordinates inside a single discipline sheet', () => {
+    expect(getSkillSpritePosition(0, true)).toEqual({ x: 0, y: 0 })
+    expect(getSkillSpritePosition(1, true)).toEqual({ x: -65, y: 0 })
+    expect(getSkillSpritePosition(2, false)).toEqual({ x: -130, y: -65 })
+  })
+
+  it('keeps every skill frame inside the 195x130 sheet', () => {
+    for (let skillId = 0; skillId < 3; skillId += 1) {
+      for (const unlocked of [true, false]) {
+        const { x, y } = getSkillSpritePosition(skillId, unlocked)
+        expect(x).toBeLessThanOrEqual(0)
+        expect(x).toBeGreaterThanOrEqual(-130)
+        expect(y).toBeGreaterThanOrEqual(-65)
+        expect(y).toBeLessThanOrEqual(0)
+      }
+    }
   })
 })
 

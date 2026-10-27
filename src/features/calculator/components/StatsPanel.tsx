@@ -6,9 +6,9 @@ import {
   getRequiredLevel,
   getRequiredTotemLevel,
   type StoneMap,
-} from '../model/calculator'
-import { iconUrl, TREE, type DisciplineMeta } from '../data/meta'
-import styles from '../calculator.module.css'
+} from '@/features/calculator/model/calculator'
+import { iconUrl, TREE, type DisciplineMeta } from '@/features/calculator/data/meta'
+import styles from '@/features/calculator/calculator.module.css'
 
 interface StatsPanelProps {
   discipline: DisciplineMeta
@@ -25,7 +25,14 @@ export function StatsPanel({ discipline, stones, pointsSpent }: StatsPanelProps)
   return (
     <aside className={styles.statsPanel} aria-label={t('calculator.statsLabel')}>
       <div className={styles.panelHead}>
-        <img src={discipline.portrait} alt="" width="381" height="382" loading="lazy" />
+        <img
+          src={discipline.portraitSmall}
+          alt=""
+          width="96"
+          height="96"
+          loading="lazy"
+          decoding="async"
+        />
         <div>
           <strong>{discipline.name}</strong>
           <span>{discipline.className}</span>
@@ -73,7 +80,14 @@ export function StatsPanel({ discipline, stones, pointsSpent }: StatsPanelProps)
             <li key={stat.statId} className={styles.statRow}>
               {stat.icon ? (
                 <span className={styles.statIcon}>
-                  <img src={iconUrl(stat.icon)} alt="" loading="lazy" />
+                  <img
+                    src={iconUrl(stat.icon)}
+                    alt=""
+                    width="52"
+                    height="52"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </span>
               ) : null}
               <span className={styles.statName}>{stat.name}</span>

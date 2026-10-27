@@ -1,9 +1,9 @@
 import { useState, type CSSProperties } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { routePath } from '../../app/paths'
-import { useLocale } from '../../app/useLocale'
-import { DISCIPLINE_SUMMARIES, getDisciplineSummary } from '../calculator/data/disciplines'
+import { routePath } from '@/app/paths'
+import { useLocale } from '@/app/useLocale'
+import { DISCIPLINE_SUMMARIES, getDisciplineSummary } from '@/features/calculator/data/disciplines'
 import styles from './home.module.css'
 
 const HERO_STATS = [
@@ -60,9 +60,13 @@ export function Hero() {
             <img
               className={styles.heroPortrait}
               src={discipline.portrait}
+              srcSet={`${discipline.portraitMedium} 256w, ${discipline.portrait} 382w`}
+              sizes="(max-width: 480px) 252px, (max-width: 720px) 302px, 432px"
               alt={`${discipline.name} — ${discipline.className}`}
               width="381"
               height="382"
+              fetchPriority="high"
+              decoding="async"
             />
             <div className={styles.portraitLabel}>
               <span>{t('home.hero.classLabel', { className: discipline.className })}</span>
@@ -81,7 +85,14 @@ export function Hero() {
                 aria-label={t('calculator.selectDiscipline', { discipline: item.name })}
                 title={item.name}
               >
-                <img src={item.portrait} alt="" width="381" height="382" />
+                <img
+                  src={item.portraitSmall}
+                  alt=""
+                  width="96"
+                  height="96"
+                  loading="lazy"
+                  decoding="async"
+                />
               </button>
             ))}
           </div>

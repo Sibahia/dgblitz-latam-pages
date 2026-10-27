@@ -1,5 +1,6 @@
 import { copyFileSync, existsSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vitest/config'
 import { loadEnv, type Plugin } from 'vite'
@@ -56,8 +57,17 @@ export default defineConfig(({ mode }) => {
   return {
     base,
     plugins: [react(), cspMeta(), spaFallback()],
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
+      },
+    },
     build: {
       sourcemap: false,
+      assetsInlineLimit(filePath) {
+        if (filePath.replace(/\\/g, '/').includes('/src/assets/game/')) return false
+        return undefined
+      },
     },
     test: {
       environment: 'jsdom',

@@ -5,10 +5,10 @@ import {
   isSlotUnlocked,
   MAX_TALENT_LEVEL,
   type StoneMap,
-} from '../model/calculator'
-import { iconUrl, TREE, UI, type DisciplineMeta } from '../data/meta'
-import type { Talent } from '../data/types'
-import styles from '../calculator.module.css'
+} from '@/features/calculator/model/calculator'
+import { iconUrl, TREE, UI, type DisciplineMeta } from '@/features/calculator/data/meta'
+import type { Talent } from '@/features/calculator/data/types'
+import styles from '@/features/calculator/calculator.module.css'
 
 export type DetailState =
   | { kind: 'hint' }
@@ -58,7 +58,14 @@ export function DetailPanel({
       <section className={styles.detail} aria-live="polite">
         <div className={styles.detailHead}>
           <span className={styles.detailIcon}>
-            <img src={iconUrl(talent.icon)} alt="" />
+            <img
+              src={iconUrl(talent.icon)}
+              alt=""
+              width="52"
+              height="52"
+              loading="lazy"
+              decoding="async"
+            />
           </span>
           <div>
             <strong>{talent.name}</strong>
@@ -110,11 +117,7 @@ export function DetailPanel({
     const skill = discipline.data.skills[detail.skillId]
     if (!skill) return null
     const state = getSkillStates(stones, pointsSpent)[detail.skillId]
-    const spritePosition = getSkillSpritePosition(
-      detail.skillId,
-      discipline.id,
-      state?.unlocked ?? false,
-    )
+    const spritePosition = getSkillSpritePosition(detail.skillId, state?.unlocked ?? false)
     const iconScale = 46 / 65
     return (
       <section className={styles.detail} aria-live="polite">
@@ -122,8 +125,8 @@ export function DetailPanel({
           <span
             className={styles.detailIcon}
             style={{
-              backgroundImage: `url(${UI.skillSprite})`,
-              backgroundSize: `${585 * iconScale}px ${390 * iconScale}px`,
+              backgroundImage: `url(${UI.skillSheets[discipline.id]})`,
+              backgroundSize: `${195 * iconScale}px ${130 * iconScale}px`,
               backgroundPosition: `${spritePosition.x * iconScale}px ${spritePosition.y * iconScale}px`,
             }}
           />
@@ -159,7 +162,14 @@ export function DetailPanel({
       <section className={styles.detail} aria-live="polite">
         <div className={styles.detailHead}>
           <span className={styles.detailIcon}>
-            <img src={UI.closedSlot} alt="" />
+            <img
+              src={UI.closedSlot}
+              alt=""
+              width="36"
+              height="36"
+              loading="lazy"
+              decoding="async"
+            />
           </span>
           <div>
             <strong>{unlocked ? t('calculator.emptySocket') : t('calculator.lockedSocket')}</strong>

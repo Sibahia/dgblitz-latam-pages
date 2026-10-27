@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import i18n from '../i18n'
+import i18n from '@/i18n'
 
 export type Locale = 'es' | 'en'
 

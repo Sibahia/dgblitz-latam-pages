@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { useDocumentMeta } from '../../app/useDocumentMeta'
+import { useDocumentMeta } from '@/app/useDocumentMeta'
 import { CalculatorSpotlight } from './CalculatorSpotlight'
 import { DisciplineRoster } from './DisciplineRoster'
 import { GuidesPreview } from './GuidesPreview'

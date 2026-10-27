@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { guideAnchor, routePath } from '../../app/paths'
-import { useLocale } from '../../app/useLocale'
+import { guideAnchor, routePath } from '@/app/paths'
+import { useLocale } from '@/app/useLocale'
 import styles from './home.module.css'
 
 const GUIDE_LINKS = [

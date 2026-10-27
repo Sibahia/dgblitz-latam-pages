@@ -3,9 +3,9 @@ import {
   talentsByTier,
   tierRequiredPoints,
   type StoneMap,
-} from '../model/calculator'
-import { iconUrl, type DisciplineMeta } from '../data/meta'
-import styles from '../calculator.module.css'
+} from '@/features/calculator/model/calculator'
+import { iconUrl, type DisciplineMeta } from '@/features/calculator/data/meta'
+import styles from '@/features/calculator/calculator.module.css'
 
 interface TalentTrayProps {
   discipline: DisciplineMeta
@@ -76,7 +76,14 @@ export function TalentTray({
                       }
                     >
                       <span className={styles.talentIcon}>
-                        <img src={iconUrl(entry.talent.icon)} alt="" loading="lazy" />
+                        <img
+                          src={iconUrl(entry.talent.icon)}
+                          alt=""
+                          width="52"
+                          height="52"
+                          loading="lazy"
+                          decoding="async"
+                        />
                       </span>
                       <span className={styles.talentName}>{entry.talent.name}</span>
                     </button>
