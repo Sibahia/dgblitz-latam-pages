@@ -106,6 +106,26 @@
 :root {
   --font-display: 'Cinzel', 'Times New Roman', serif;
   --font-body: 'Alegreya Sans', 'Trebuchet MS', sans-serif;
+  --font-ui: 'Dungeon Blitz UI', 'Alegreya Sans', 'Trebuchet MS', sans-serif;
+  --armory-stone: #2d313c;
+  --armory-ink: #f1e7ce;
+  --armory-muted: #c9bea5;
+  --armory-faint: #a79e8a;
+  --armory-line: rgba(242, 211, 107, 0.24);
+  --armory-line-strong: rgba(242, 211, 107, 0.5);
+  --armory-gold: #e5c05a;
+  --armory-gold-bright: #f7dd8a;
+  --armory-bronze: #b9793f;
+  --armory-silver: #b9c2c9;
+  --armory-gold-plate: #d6a735;
+  --armory-field-bg: rgba(10, 12, 16, 0.55);
+  --armory-button-bg: rgba(12, 15, 20, 0.55);
+  --armory-button-active-bg: rgba(42, 33, 12, 0.7);
+  --armory-state-bg: rgba(10, 12, 16, 0.4);
+  --armory-variant-bg: rgba(8, 10, 14, 0.28);
+  --armory-variant-line: rgba(242, 211, 107, 0.12);
+  --armory-backdrop: rgba(4, 6, 8, 0.78);
+  --armory-plate-letter-ink: #1b1709;
   --container: 1280px;
   --header-height: 72px;
   --radius-sm: 6px;

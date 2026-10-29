@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Dungeon Blitz UI';
+  src: url('@/assets/game/calculator/ui/ui03_font.woff') format('woff');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 *,
 *::before,
 *::after {

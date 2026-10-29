@@ -10,6 +10,8 @@ const verify = args.has('--verify')
 
 const UI_DIR = 'src/assets/game/calculator/ui'
 const ICON_DIR = 'src/assets/game/calculator/icons'
+const ARMORY_UI_DIR = 'src/assets/game/armory/ui'
+const ARMORY_ICON_DIR = 'src/assets/game/armory/icons'
 const DISCIPLINE_DIR = 'src/assets/game/disciplines'
 const BACKGROUND_SOURCE = 'src/assets/game/background.webp'
 
@@ -42,12 +44,16 @@ function splitSkills(input) {
 }
 
 async function iconJobs() {
-  const entries = await readdir(resolve(root, ICON_DIR))
+  return pngJobs(ICON_DIR)
+}
+
+async function pngJobs(directory, prefix = '') {
+  const entries = await readdir(resolve(root, directory))
   return entries
-    .filter((entry) => entry.endsWith('.png'))
+    .filter((entry) => entry.endsWith('.png') && entry.startsWith(prefix))
     .sort()
     .map((entry) =>
-      asset(`${ICON_DIR}/${entry}`, `${ICON_DIR}/${basename(entry, '.png')}.webp`, {
+      asset(`${directory}/${entry}`, `${directory}/${basename(entry, '.png')}.webp`, {
         lossless: true,
       }),
     )
@@ -98,7 +104,10 @@ const backgroundJobs = [
 
 const groups = [
   { name: 'UI', jobs: uiJobs },
+  { name: 'UI_0_3', jobs: await pngJobs(UI_DIR, 'ui03_') },
   { name: 'Icons', jobs: await iconJobs() },
+  { name: 'Armory UI', jobs: await pngJobs(ARMORY_UI_DIR) },
+  { name: 'Armory Icons', jobs: await pngJobs(ARMORY_ICON_DIR) },
   { name: 'Portraits', jobs: await portraitJobs() },
   { name: 'Background', jobs: backgroundJobs },
 ]
