@@ -8,18 +8,24 @@ export function localeFromPath(pathname: string): Locale {
   return pathname === '/en' || pathname.startsWith('/en/') ? 'en' : 'es'
 }
 
+const ROUTE_PAIRS: ReadonlyArray<readonly [spanish: string, english: string]> = [
+  ['/calculadora', '/en/calculator'],
+  ['/guias', '/en/guides'],
+  ['/equipo', '/en/gear'],
+]
+
 function englishPath(pathname: string): string {
   if (pathname === '/' || pathname === '') return '/en'
-  if (pathname === '/calculadora') return '/en/calculator'
-  if (pathname === '/guias') return '/en/guides'
+  const pair = ROUTE_PAIRS.find(([spanish]) => spanish === pathname)
+  if (pair) return pair[1]
   if (pathname === '/en' || pathname.startsWith('/en/')) return pathname
   return '/en'
 }
 
 function spanishPath(pathname: string): string {
   if (pathname === '/en') return '/'
-  if (pathname === '/en/calculator') return '/calculadora'
-  if (pathname === '/en/guides') return '/guias'
+  const pair = ROUTE_PAIRS.find(([, english]) => english === pathname)
+  if (pair) return pair[0]
   if (pathname.startsWith('/en/')) return pathname.slice(3) || '/'
   return pathname
 }
@@ -38,7 +44,7 @@ export function useLocale() {
 
   const switchLocale = () => {
     const target = locale === 'es' ? englishPath(location.pathname) : spanishPath(location.pathname)
-    navigate(`${target}${location.hash}`, { replace: true })
+    navigate(`${target}${location.search}${location.hash}`, { replace: true })
   }
 
   return { locale, switchLocale, isEnglish: locale === 'en' }

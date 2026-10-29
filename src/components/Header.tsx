@@ -8,6 +8,7 @@ import styles from './Header.module.css'
 const NAV_ITEMS: Array<{ route: RouteKey; label: string }> = [
   { route: 'home', label: 'nav.home' },
   { route: 'calculator', label: 'nav.calculator' },
+  { route: 'armory', label: 'nav.armory' },
   { route: 'guides', label: 'nav.guides' },
 ]
 

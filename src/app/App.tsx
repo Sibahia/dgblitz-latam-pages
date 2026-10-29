@@ -15,6 +15,9 @@ const CalculatorPage = lazy(() =>
 const GuidesPage = lazy(() =>
   import('@/features/guides/GuidesPage').then((module) => ({ default: module.GuidesPage })),
 )
+const ArmoryPage = lazy(() =>
+  import('../features/armory/ArmoryPage').then((module) => ({ default: module.ArmoryPage })),
+)
 const NotFoundPage = lazy(() =>
   import('@/features/not-found/NotFoundPage').then((module) => ({
     default: module.NotFoundPage,
@@ -44,9 +47,11 @@ export default function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/calculadora" element={<CalculatorPage />} />
               <Route path="/guias" element={<GuidesPage />} />
+              <Route path="/equipo" element={<ArmoryPage />} />
               <Route path="/en" element={<HomePage />} />
               <Route path="/en/calculator" element={<CalculatorPage />} />
               <Route path="/en/guides" element={<GuidesPage />} />
+              <Route path="/en/gear" element={<ArmoryPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Suspense>

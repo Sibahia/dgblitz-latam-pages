@@ -20,12 +20,9 @@ from PIL import Image
 
 
 ROOT = Path(__file__).resolve().parents[2]
-DUMP = Path(
-    r"C:\Users\danie\Downloads\Daniel\Dev\Code\dungeon-blitz\src\client\content\localhost\p"
-)
-FFDEC = Path(
-    r"C:\Users\danie\Downloads\Daniel\Dev\Code\dungeon-blitz\tools\ffdec\ffdec-cli.exe"
-)
+CODE_ROOT = ROOT.parent
+DUMP = CODE_ROOT / "dungeon-blitz" / "src" / "client" / "content" / "localhost" / "p"
+FFDEC = CODE_ROOT / "dungeon-blitz" / "tools" / "ffdec" / "ffdec-cli.exe"
 ASSETS = ROOT / "src" / "assets" / "game" / "armory"
 SPIKE = ROOT / "scripts" / "armory-spike"
 OUT = SPIKE / "out"

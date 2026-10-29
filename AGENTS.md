@@ -4,8 +4,8 @@
 Dungeon Blitz (2012) fan/reference site: documentary and guide content plus a talent calculator. The home page starts with a Hero and the calculator is the main interactive page. Spanish (`es`) is the default locale; English (`en`) is required. The visual direction must follow the game, not a generic SaaS template.
 
 ## Current state
-- Implemented static site: Vite + React + TypeScript with a home page, talent calculator (9 disciplines, 90 points, 42 talentstones each, shareable build links), bilingual guides, light/dark theme, tests, and GitHub Pages deployment. `README.md` documents setup, data/assets, deployment, and licensing.
-- Asset optimization is complete: the shipped build uses 120 WebP (1,193.6 KB), no PNG/JPG or inline image data, and `pnpm check` passes (26 tests). See **Asset pipeline** for details.
+- Implemented static site: Vite + React + TypeScript with a home page, talent calculator (9 disciplines, 90 points, 42 talentstones each, shareable build links), bilingual guides, an Armory vertical slice (Paladin/weapons, filters, source dialog), light/dark theme, tests, and GitHub Pages deployment. `README.md` documents setup, data/assets, deployment, and licensing.
+- Asset optimization is complete: the shipped build uses 140 WebP (1,408.0 KB), no PNG/JPG or inline image data, and `pnpm check` passes (39 tests). See **Asset pipeline** for details.
 - Visual/content reference: the local game asset dump described in **Game assets** is the primary source for the game's look and data. `https://github.com/Sibahia/dg-latam` was not accessible (404) when this file was written; do not guess its structure or invent game data.
 - `.agents/skills/` and `skills-lock.json` are installed skill assets, not app code. Do not edit or delete them.
 - Multi-session Armory plan: `docs/armory-implementation-plan.md`. Read it before an Armory session and update its session state before stopping.
@@ -38,12 +38,12 @@ Dungeon Blitz (2012) fan/reference site: documentary and guide content plus a ta
 
 - Keep class mappings exact: 273/274 are Mage (staff), 281/282 Paladin (shield), 289/290 Rogue (blades). Do not relabel them.
 - Preserve corners at native aspect ratio; stretch/tile only flat stone and rail sections. Keep text contrast and semantic/ARIA content above the decorative sprite layers.
-- Export only the pieces used into `src/assets/game/calculator/ui/` with stable names such as `ui03_sprite_4.webp`, `ui03_border_44.webp`, `ui03_icon_paladin.webp`, and `ui03_font.woff2`; optimize them before committing.
-- The site imports WebP only. Keep original PNG/JPG files as unreferenced sources; see **Asset pipeline** for generation, quality settings, current sizes, and verification.
+- Export only the pieces used into `src/assets/game/calculator/ui/` with stable names such as `ui03_sprite_8.webp`, `ui03_border_44.webp`, `ui03_button_53.webp`, and `ui03_font.woff2`; optimize them before committing.
+- The site imports image assets as WebP only; the UI font is a local WOFF/WOFF2. Keep original PNG/JPG files as unreferenced sources; see **Asset pipeline** for generation, quality settings, current sizes, and verification.
 
 ## Asset pipeline
-- Source originals stay in `src/assets/game/` as unreferenced PNG/JPG (119 PNG, 9 JPG); generated WebP live alongside them. Never import PNG/JPG in app code.
-- `sharp` is a devDependency. `scripts/optimize-assets.mjs` generates UI lossless (including `master-skills-0.webp`…`master-skills-8.webp`, 195×130 each), 78 icons lossless, 27 portrait WebP (9 portraits at 382/256/96; q85/q82/q82), and 2 background WebP (960/1440; q82).
+- Source originals stay in `src/assets/game/` as unreferenced PNG/JPG (130 PNG, 9 JPG), plus the `background.webp` source; generated WebP live alongside them. Never import PNG/JPG in app code.
+- `sharp` is a devDependency. `scripts/optimize-assets.mjs` generates 149 WebP: 13 UI lossless (including `master-skills-0.webp`…`master-skills-8.webp`, 195×130 each), 10 `UI_0_3` pieces, 78 icons lossless, 9 Armory UI pieces, 10 Armory icons, 27 portrait WebP (9 portraits at 382/256/96; q85/q82/q82), and 2 background WebP (960/1440; q82). Three class-card WebP, three preview-only class-icon WebP, and the background source are authored WebP, not generated.
 - `pnpm assets:optimize` regenerates; `pnpm assets:check` verifies all expected files; `node scripts/optimize-assets.mjs --verify` checks lossless/visible pixels. All game imports use `?url&no-inline`, and `vite.config.ts` excludes `src/assets/game/` from `assetsInlineLimit` so icons never become base64 in JS.
 - `scripts/check-dist-assets.mjs` rejects PNG/JPG/GIF, `data:image` in JS/CSS, and images >200 KB. `pnpm assets:check:dist` runs after `pnpm build`; `pnpm check` chains lint, typecheck, tests, asset check, build, and dist audit.
 - `master-skills` is split by discipline; `getSkillSpritePosition(skillId, unlocked)` returns local coordinates for the 195×130 sheet. The 380px `talent-tree-v5` variant was discarded because the 608px version is smaller; measure before adding another variant.

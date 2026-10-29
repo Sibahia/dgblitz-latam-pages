@@ -5,9 +5,10 @@ releer todo el repositorio. La fuente de verdad del proyecto sigue siendo `AGENT
 este documento solo registra el plan, las decisiones y el estado de la sesión.
 
 - Fecha de creación: 2026-10-26
-- Rama de implementación: `feat/armory` (mergeada en `main` con el PR #2)
-- Worktree de implementación: eliminado tras el merge
-- Worktree principal: `C:\Users\danie\Downloads\Daniel\Dev\Code\Calc-Talents DgBlitz`
+- Rama de implementación: `feat/armory` (PR #2 mergeado; rama avanzada a `origin/main`
+  para la Sesión 3)
+- Worktree de implementación: `..\Calc-Talents DgBlitz-armory` (activo en la Sesión 3)
+- Worktree principal: `..\Calc-Talents DgBlitz`
 
 ## 1. Regla de trabajo entre sesiones
 
@@ -102,8 +103,8 @@ errores previos con errores de la Armería.
   (`-armory-data`, `-armory-ui`) y fusionar en `feat/armory`; no compartir el mismo
   directorio de trabajo.
 - El dump del juego sigue siendo externo y de solo lectura:
-  `C:\Users\danie\Downloads\Daniel\Dev\Code\dungeon-blitz\src\client\content\localhost\p`
-- FFDec oficial: `C:\Users\danie\Downloads\Daniel\Dev\Code\dungeon-blitz\tools\ffdec\ffdec.bat`
+  `..\dungeon-blitz\src\client\content\localhost\p`
+- FFDec oficial: `..\dungeon-blitz\tools\ffdec\ffdec.bat`
 - No copiar el dump completo ni enlazarlo en runtime. Solo assets exportados y
   optimizados dentro de `src/assets/game/armory/`.
 
@@ -177,7 +178,10 @@ mantener el orden real o aplicar la excepción del usuario.
 
 - `UI_4.swf`: `a_ArmoryWindow`, `a_EmptyGearSlotMoveable`, `a_ScreenHudTooltip`,
   `a_Icon_Gear`.
-- `UI_1.swf`: `a_Icon_paladin`, `a_Icon_rogue`, `a_Icon_mage`.
+- `UI_0_3.swf`: paneles de clase `am_PaladinDesc` (306), `am_RogueDesc` (309) y
+  `am_MageDesc` (313), e iconos reales de clase Paladín (282), Rogue (290) y Mage (274).
+  Los iconos de `UI_1.swf` usados en el spike eran máscaras/glows y se sustituyeron en
+  la Sesión 2.
 - `UI_Library.swf`: `_DoodadArmoryItemWrapperMain`, `_DoodadArmoryButtonMask01`,
   `_DoodadArmoryStoneFill01`, `_DoodadItemPlateBronze01`, `_DoodadItemPlateSilver01`,
   `_DoodadItemPlateGold01`, `_DoodadRarityChest01`–`03`, `_DoodadGearHolderStub`,
@@ -185,7 +189,10 @@ mantener el orden real o aplicar la excepción del usuario.
   `_DoodadItemPlateBlankIcon01`, `_DoodadWindowBorderPiece01`,
   `_ButtonFrameStandard*`, `_ButtonFrameOver*`.
 - Los assets se exportan como PNG/WebP con transparencia; los marcos se usan con
-  `border-image` o piezas de esquina, no como captura completa de la ventana.
+  `border-image` o piezas de esquina, no como captura completa de la ventana. El panel
+  de clase sí se exporta como pieza completa: se eliminan los textos `am_ClassName` y
+  `am_ClassDescription` del XML del SWF, se recorta el marco limpio y se compone con el
+  icono real en un lienzo común.
 
 ### Rutas y estado de URL
 
@@ -320,7 +327,7 @@ Implementación:
 - Script: `dungeon-blitz/src/server/scripts/export_armory_site_data.ts` (one-off,
   fuera del build del sitio).
 - Comando:
-  `npx ts-node scripts/export_armory_site_data.ts --out "C:\Users\danie\Downloads\Daniel\Dev\Code\Calc-Talents DgBlitz-armory\src\features\armory\data"`
+  `npx ts-node scripts/export_armory_site_data.ts --out "..\..\..\Calc-Talents DgBlitz-armory\src\features\armory\data"`
   desde `dungeon-blitz/src/server`.
 - Los mapas jefe/reino se extraen de `DungeonBlitz.swf` con los opcodes
   `0x60/0x2c/0x2c/0x61` y los nombres de multiname `var_22`/`var_32`.
@@ -336,7 +343,7 @@ Criterio de salida:
 - 0 fuentes sin resolver.
 - JSON tipado y tests verdes.
 
-### Sesión 2 — Rutas, i18n y shell
+### Sesión 2 — Rutas, i18n y shell (completada)
 
 Tareas:
 
@@ -454,7 +461,7 @@ Criterio de salida:
 
 ### Script one-off de datos
 
-- `C:\Users\danie\Downloads\Daniel\Dev\Code\dungeon-blitz\src\server\scripts\export_armory_site_data.ts`
+- `..\dungeon-blitz\src\server\scripts\export_armory_site_data.ts`
 - Reutiliza `swfPatchUtils.ts`.
 - No se incluye en el build del sitio.
 
@@ -484,7 +491,7 @@ pnpm test:run
 pnpm build
 
 # FFDec
-& "C:\Users\danie\Downloads\Daniel\Dev\Code\dungeon-blitz\tools\ffdec\ffdec.bat" -help export
+& "..\dungeon-blitz\tools\ffdec\ffdec.bat" -help export
 ```
 
 ## 9. Decisiones cerradas
@@ -524,20 +531,207 @@ pnpm build
 Actualizar esta sección al final de cada sesión. No borrar el historial; añadir una
 entrada nueva arriba.
 
+### 2026-10-29 — Sesión 3: vertical slice Paladín/Arma
+
+- Rama/worktree: `feat/armory` en `..\Calc-Talents DgBlitz-armory`; base
+  `origin/main` `c9f6f96`; cambios sin commit.
+- Fase: Sesión 3 completada; siguiente es la Sesión 4 (iconos completos).
+- Hecho:
+  - Exportadas y usadas las piezas de `cbp/UI_0_3.swf` para el chrome:
+    `ui03_border_42/44/46/48/50`, `ui03_button_53/57`, `ui03_sprite_8/10/20` y
+    `ui03_font.woff`.
+  - Exportados los iconos reales de la muestra: `AxeStarter1` (ID 1,
+    `Farmer's Axe`), `GoblinChopperM` (ID 2, `Goblin's Chopper`) e `IllyricAxeM`
+    (ID 3, `Illyric Axe`), a 56 y 112 px.
+  - Añadidos `data/constants.ts`, `data/meta.ts` y `data/load.ts`; la carga de
+    clase es dinámica por import y `data/index.ts` conserva los JSON estáticos para
+    los tests. La shell no importa los tres JSON.
+  - `ArmoryPage` con Paladín/Arma por defecto, estante de ranuras en orden real,
+    chips de subtipo, buscador, contadores, nota de vista parcial, filas con placa
+    de rareza, expansión M/R/L y diálogo nativo de fuente/misiones.
+  - Estado en URL: `clase`, `ranura`, `tipo` y `q`; `rareza`/`fuente` quedan
+    reservados y se limpian. Cambiar clase conserva `q` y elimina `tipo`; cambiar
+    ranura elimina `tipo`; limpiar filtros conserva `clase`.
+  - Añadidos `GearItemRow.tsx`, `SourceDialog.tsx`, `visuals.ts` y
+    `sourceLabel.ts`; `SourceDialog` usa `showModal()`/`close()` con fallback para
+    jsdom.
+  - Añadido `@font-face` local para `Dungeon Blitz UI` con
+    `ui03_font.woff`; colores de la Armería tokenizados como `--armory-*`.
+  - Exportadas las piezas `UI_0_3` usadas; retiradas las no usadas
+    (`ui03_frame_26`, `ui03_sprite_4/6/12/14/16/18/22/24`). Los assets de
+    `armory/ui` que solo usa `scripts/armory-spike/preview.html` se conservan.
+  - Actualizado `scripts/armory-spike/export_armory_spike.py` para usar rutas
+    relativas al checkout hermano, sin rutas absolutas.
+- Archivos tocados:
+  - `src/features/armory/ArmoryPage.tsx`
+  - `src/features/armory/GearItemRow.tsx`
+  - `src/features/armory/SourceDialog.tsx`
+  - `src/features/armory/visuals.ts`
+  - `src/features/armory/sourceLabel.ts`
+  - `src/features/armory/armory.module.css`
+  - `src/features/armory/ArmoryPage.test.tsx`
+  - `src/features/armory/data/constants.ts`
+  - `src/features/armory/data/meta.ts`
+  - `src/features/armory/data/load.ts`
+  - `src/features/armory/data/index.ts`
+  - `src/i18n/es.ts`
+  - `src/i18n/en.ts`
+  - `src/styles/tokens.css`
+  - `src/styles/global.css`
+  - `src/assets/game/calculator/ui/ui03_*`
+  - `src/assets/game/armory/icons/AxeStarter1-*`,
+    `GoblinChopperM-*`, `IllyricAxeM-*`
+  - `scripts/optimize-assets.mjs`
+  - `scripts/armory-spike/export_armory_slice.py`
+  - `scripts/armory-spike/export_armory_spike.py`
+  - `docs/armory-implementation-plan.md`
+  - `AGENTS.md`
+- Comandos ejecutados:
+  - `pnpm install --frozen-lockfile`
+  - `pnpm assets:optimize`
+  - `pnpm typecheck`
+  - `pnpm lint`
+  - `pnpm test:run`
+  - `pnpm assets:check`
+  - `pnpm build`
+  - `pnpm assets:check:dist`
+  - QA Playwright con Chromium en 1440×1000 y 390×844, DPR 2, claro/oscuro,
+    expansión y diálogo; comprobación de teclado (Enter/Escape), header sticky y
+    overflow.
+- Tests/build: 39/39 tests en 5 archivos; typecheck y lint verdes; build de 242
+  módulos; `assets:check` verde; dist con 140 imágenes WebP (1.408,0 KB). QA sin
+  overflow, imágenes rotas, errores de consola/página ni peticiones fallidas; el
+  header queda en `top=0` al hacer scroll, Enter abre la expansión y el diálogo,
+  el foco entra en el diálogo y Escape lo cierra.
+- Decisiones:
+  - La vista por defecto es Paladín/Arma; el orden de ranuras es el real del juego.
+  - La muestra se limita a tres objetos y muestra `Vista parcial: 3 de 157`; el
+    buscador solo compara nombres de objeto y variante (fuente/mazmorra/misión en
+    la Sesión 5).
+  - M/R/L se representan como bronce/plata/oro; el mapeo final contra
+    `ScreenArmory` se verifica en la Sesión 4.
+  - El fallback de icono de la muestra es `a_EmptyGearSlotMoveable`; el fallback de
+    los 54 sombreros sin arte queda para la Sesión 4.
+  - Se usa WOFF en lugar de WOFF2 porque la conversión WOFF2 está bloqueada por la
+    ausencia de `brotli`.
+  - El diálogo usa `<dialog>` nativo y conserva un fallback para jsdom.
+- Bloqueos:
+  - WOFF2 bloqueado por falta de `brotli`; se acepta `ui03_font.woff`.
+  - Verificación final del mapeo M/R/L contra `ScreenArmory`: Sesión 4.
+  - Los 54 sombreros sin `CustomArt` primario y los iconos completos: Sesión 4.
+- Riesgos:
+  - Las capturas full-page en móvil muestran el header sticky a media página; es
+    un artefacto de la captura. La QA de viewport confirma `top=0` al hacer scroll.
+  - La muestra usa solo tres iconos reales; la cobertura completa aún no existe.
+- Siguiente: Sesión 4 — exportar los 920 `CustomArt`, componer las 3.466
+  combinaciones, generar atlas WebP de 56 px por clase y resolver el fallback de
+  los 54 sombreros.
+
+### 2026-10-26 — Sesión 2: iconos de clase y tarjetas del selector
+
+- Rama/worktree: `feat/armory` en
+  `..\Calc-Talents DgBlitz-armory`; cambios sin
+  commit.
+- Fase: refinamiento de la Sesión 2; la Sesión 3 sigue pendiente.
+- Hecho:
+  - Exportados los iconos reales de `p/cbp/UI_0_3.swf`: Paladín 282, Rogue 290 y Mage
+    274, a 4× y normalizados a WebP 256×256.
+  - Exportados los paneles 306/309/313 sin texto editando el XML y usando `xml2swf`;
+    el marco limpio resultante es idéntico en las tres clases (411×201, 822×402 a 2×).
+  - Generadas tres tarjetas de clase de 900×500 en WebP componiendo el marco común y
+    el icono real; el selector las usa como botones con nombre, recuentos, estado
+    activo (título dorado y rombo) y filtro de saturación para las inactivas.
+  - Sustituidos los antiguos `a_Icon_*.png` (máscaras/glows) por los `a_Icon_*.webp`
+    reales; `scripts/armory-spike/preview.html` apunta a los nuevos assets.
+  - Añadidas claves `basesShort`/`variantsShort` en ES/EN para la línea de recuentos.
+- Archivos tocados: `src/features/armory/ArmoryPage.tsx`,
+  `src/features/armory/armory.module.css`, `src/i18n/es.ts`, `src/i18n/en.ts`,
+  `src/assets/game/armory/ui/a_ClassCard*.webp`,
+  `src/assets/game/armory/ui/a_Icon_*.webp`,
+  `scripts/armory-spike/preview.html`, `docs/armory-implementation-plan.md`.
+- Comandos: `pnpm check` (lint, typecheck, 32/32 tests, build); QA Playwright con
+  Chromium en 1440 y 390, claro y oscuro, español e inglés; sin errores de consola ni
+  peticiones fallidas.
+- Decisiones:
+  - Un marco común sin el glow de clase: el color de clase lo aporta el icono.
+  - Las tarjetas muestran los recuentos como apoyo; la shell conserva el detalle.
+  - WebP para reducir peso: iconos 16–19 KB y tarjetas ~26–28 KB.
+- Bloqueos: ninguno.
+- Siguiente: Sesión 3 — vertical slice Paladín/Arma con buscador, estante de ranuras y
+  tres objetos reales.
+
+### 2026-10-26 — Sesión 2: rutas, i18n y shell
+
+- Rama/worktree: `feat/armory` en
+  `..\Calc-Talents DgBlitz-armory`.
+- Último commit: `d752c84` (base `origin/main`); los cambios de esta sesión quedan
+  sin commit.
+- Fase: Sesión 2 completada; siguiente es Sesión 3 (vertical slice).
+- Hecho:
+  - Rama `feat/armory` avanzada a `origin/main` (`d752c84`) y worktree recreado.
+  - `armory` añadido a `RouteKey`/`routePath`: `/equipo` y `/en/gear`.
+  - Rutas registradas en `App.tsx` con carga lazy de `ArmoryPage`.
+  - “Armería”/“Armory” añadido a la navegación superior.
+  - `useLocale` conserva `location.search` y `location.hash`, y mapea
+    `/equipo` ↔ `/en/gear`.
+  - Claves ES/EN de la Armería y metadatos de página.
+  - `ArmoryPage`: título, selector de clase con tres botones, `aria-pressed` y
+    `?clase=` en la URL; conserva el resto de parámetros.
+  - La shell no importa los JSON de clase; solo `manifest.json` para los recuentos.
+  - Tests nuevos de rutas, `useLocale` y `ArmoryPage` (32 tests en total).
+  - QA de navegador en 1440 y 390, tema claro y oscuro; sin errores de consola.
+- En curso: nada; handoff.
+- Siguiente: Sesión 3 — vertical slice Paladín/Arma con buscador, estante de
+  ranuras y tres objetos reales.
+- Archivos tocados:
+  - `src/app/paths.ts`
+  - `src/app/useLocale.ts`
+  - `src/app/App.tsx`
+  - `src/components/Header.tsx`
+  - `src/i18n/es.ts`
+  - `src/i18n/en.ts`
+  - `src/features/armory/ArmoryPage.tsx`
+  - `src/features/armory/armory.module.css`
+  - `src/features/armory/ArmoryPage.test.tsx`
+  - `src/app/paths.test.ts`
+  - `src/app/useLocale.test.tsx`
+  - `src/test/setup.ts`
+  - `docs/armory-implementation-plan.md`
+- Comandos ejecutados:
+  - `pnpm install --frozen-lockfile`
+  - `pnpm check` (línea base antes de tocar código)
+  - `pnpm typecheck`
+  - `pnpm test:run`
+  - `pnpm lint`
+  - QA Playwright con `webapp-testing` en 1440 y 390, claro y oscuro.
+- Tests/build: línea base 24/24; ahora 32/32, typecheck y lint verdes.
+- Decisiones:
+  - Se reutiliza `feat/armory` avanzándola a `origin/main`; no se crea una rama
+    nueva.
+  - El selector escribe `clase` con `replace` para no llenar el historial.
+  - Al cambiar de clase se conservan el resto de parámetros de búsqueda.
+  - Los recuentos usan solo `manifest.json` para evitar cargar ~1,59 MB de JSON de
+    clase en la shell.
+- Bloqueos: ninguno.
+- Riesgos:
+  - El contenido de la shell es provisional hasta las Sesiones 3 y 5.
+  - La QA visual se hizo con Chromium headless; falta la revisión final de la
+    Sesión 6.
+
 ### 2026-10-26 — Cierre Sesión 1: PR #2 mergeado
 
 - PR: https://github.com/Sibahia/dgblitz-latam-pages/pull/2
 - Merge commit: `f1bb99c8d4f1aff71c1297c73ff92c9142179845`
 - `main` actualizado y subido a `origin/main`; checks de CI en verde.
-- Worktree `C:\Users\danie\Downloads\Daniel\Dev\Code\Calc-Talents DgBlitz-armory`
-  eliminado; `git worktree list` solo muestra el worktree principal.
+- Worktree `..\Calc-Talents DgBlitz-armory` eliminado; `git worktree list` solo muestra
+  el worktree principal.
 - Rama `feat/armory` mergeada; sin cambios pendientes.
 - Siguiente: Sesión 2 — rutas `/equipo` y `/en/gear`, i18n y shell de la Armería.
 
 ### 2026-10-26 — Sesión 1: dataset generado
 
 - Rama/worktree: `feat/armory` en
-  `C:\Users\danie\Downloads\Daniel\Dev\Code\Calc-Talents DgBlitz-armory`.
+  `..\Calc-Talents DgBlitz-armory`.
 - Último commit de implementación: `a571323` (Sesión 0 + Sesión 1); esta entrada se
   actualiza en el commit de cierre documental.
 - Fase: Sesión 1 completada; siguiente es Sesión 2 (rutas, i18n y shell).
@@ -593,7 +787,7 @@ entrada nueva arriba.
 ### 2026-10-26 — Sesión 0: spike de assets validado
 
 - Rama/worktree: `feat/armory` en
-  `C:\Users\danie\Downloads\Daniel\Dev\Code\Calc-Talents DgBlitz-armory`.
+  `..\Calc-Talents DgBlitz-armory`.
 - Último commit: `cbbc21a`; los cambios de esta sesión quedan sin commit.
 - Fase: Sesión 0 completada; siguiente es Sesión 1 (dataset).
 - Hecho:
@@ -651,7 +845,7 @@ entrada nueva arriba.
 ### 2026-10-26 — Sesión 0: worktree preparado
 
 - Rama/worktree: `feat/armory` en
-  `C:\Users\danie\Downloads\Daniel\Dev\Code\Calc-Talents DgBlitz-armory`.
+  `..\Calc-Talents DgBlitz-armory`.
 - `main`: commit `970482e` (`docs: add armory implementation plan`).
 - Fase: Sesión 0 iniciada; spike de assets pendiente.
 - Hecho:
